@@ -22,7 +22,7 @@ _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getInputManage
     .registerBinding('down', 'ARROWDOWN', _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
 
 _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getAssetStore()
-    .loadManifest('../assets/manifest.json')
+    .loadManifest('./assets/manifest.json')
     .then(async () => {
         await _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getAssetStore().loadBundle('main')
     })
