@@ -1,0 +1,14 @@
+{
+    "imagePath": "image/",
+    "soundPath": "sound/",
+    "dataPath": "data/",
+    "fontPath": "font/",
+    "bundles": {
+        "main": [
+            "RDRight.png",
+            "RDLeft.png",
+            "ForestTileMap.png",
+            "mainTileMap.json"
+        ]
+    }
+}
