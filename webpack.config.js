@@ -3,7 +3,7 @@ module.exports = {
     target: "web",
     entry: "./src/index.js",
     output: {
-        path: __dirname + '/dist',
+        path: __dirname + '/',
         filename: "index.js",
         globalObject: "this",
     },
