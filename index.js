@@ -25964,8 +25964,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 class Player {
     constructor() {
-        this.jumpVelocity = 17
-        this.moveForce = 4
+        this.jumpVelocity = 15
+        this.moveForce = 3.5
         this.downForceTriggerVelocity = 0.6
         this.downForceMultiplier = 0.6
         this.jumpPeakUpForce = 0.24
@@ -25976,7 +25976,7 @@ class Player {
         this.resetFloor = 4000
         this.spawnPosition = { x: 0, y: 0 }
 
-        this.floorFriction = 0.84
+        this.floorFriction = 0.78
 
         this.jumpBufferLength = 5
         this.coyoteTimeLength = 5
