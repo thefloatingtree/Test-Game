@@ -1,18 +1,16 @@
 <template>
     <div id="app">
         <Header />
-        <Scene />
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
 import Header from './Header.vue'
-import Scene from './Scene.vue'
 
 export default {
     components: {
-        Header,
-        Scene
+        Header
     },
 };
 </script>
@@ -23,9 +21,6 @@ export default {
     padding-bottom: 0;
     margin-top: 2em;
     margin-bottom: 2em;
-}
-.box {
-    width: 30em;
 }
 .columns {
     margin-bottom: 0 !important;
@@ -42,5 +37,8 @@ export default {
 }
 .hover-highlight-danger:hover {
     color: #f14668;
+}
+.no-select {
+    user-select: none;
 }
 </style>

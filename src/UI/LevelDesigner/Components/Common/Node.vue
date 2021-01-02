@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="level-item">
-                    <slot name="parent" class="noSelect"></slot>
+                    <slot name="parent" class="no-select"></slot>
                 </div>
             </div>
             <div class="level-right pointer">
@@ -45,9 +45,6 @@
 }
 .level {
     margin-bottom: 0;
-}
-.noSelect {
-    user-select: none;
 }
 .level-right {
     margin-right: 1em;
