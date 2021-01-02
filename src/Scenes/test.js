@@ -24,6 +24,7 @@ export function buildTestScene() {
         .registerSystem(ParticleUpdater)
         .registerSystem(GameConfiguration)
 
+    
     testScene
         .createEntity()
         .addComponent(Player)
@@ -39,8 +40,8 @@ export function buildTestScene() {
 
     testScene
         .createEntity()
-        .addComponent(TileMap, { texture: SceneManager.getAssetStore().images['ForestTileMap.png'], tileSize: 16, columns: 6, rows: 4, tileData: SceneManager.getAssetStore().data['mainTileMap.json'], position: { x: -100, y: 0 } })
-        .addComponent(CollisionTileMap, { tileSize: 16 * 6, columns: 6, rows: 4, tileData: SceneManager.getAssetStore().data['mainTileMap.json'].map(index => (index > 0 && index <= 9) ? index : 0), position: { x: -100, y: 0 } })
+        .addComponent(TileMap, { texture: SceneManager.getAssetStore().images['ForestTileMap.png'], tileSize: 16, columns: 7, rows: 4, tileData: SceneManager.getAssetStore().data['mainTileMap.json'], position: { x: -100, y: 0 } })
+        .addComponent(CollisionTileMap, { tileSize: 16 * 6, columns: 7, rows: 4, tileData: SceneManager.getAssetStore().data['mainTileMap.json'].map(index => (index > 0 && index <= 9) ? index : 0), position: { x: -100, y: 0 } })
 
     return testScene
 }

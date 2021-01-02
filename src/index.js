@@ -1,15 +1,17 @@
 import { SceneManager, DeltaTimer } from '../lib/Trengine/src/index'
 import { DOWN, PRESSED } from '../lib/Trengine/src/InputManager'
+import { downloadToFile } from '../lib/Trengine/src/Util'
 import { buildLevelDesignerScene } from './Scenes/levelDesigner'
 import { buildTestScene } from './Scenes/test'
 
 SceneManager
     .getInputManager()
-    .registerBinding('right', 'ARROWRIGHT', DOWN)
-    .registerBinding('left', 'ARROWLEFT', DOWN)
-    .registerBinding('jump', 'ARROWUP', PRESSED)
-    .registerBinding('heldJump', 'ARROWUP', DOWN)
-    .registerBinding('down', 'ARROWDOWN', DOWN)
+    .registerBinding('right', ['ARROWRIGHT', 'D'], DOWN)
+    .registerBinding('left', ['ARROWLEFT', 'A'], DOWN)
+    .registerBinding('jump', ['ARROWUP', 'W', 'SPACE'], PRESSED)
+    .registerBinding('heldJump', ['ARROWUP', 'W'], DOWN)
+    .registerBinding('down', ['ARROWDOWN', 'S'], DOWN)
+    .registerBinding('heldShift', 'SHIFT', DOWN)
 
 SceneManager.getAssetStore()
     .loadManifest('./assets/manifest.json')
@@ -17,7 +19,7 @@ SceneManager.getAssetStore()
         await SceneManager.getAssetStore().loadBundle('main')
     })
     .then(() => {
-        SceneManager.registerScene('main', buildTestScene())
+        SceneManager.registerScene('main', buildLevelDesignerScene())
         go()
     })
 

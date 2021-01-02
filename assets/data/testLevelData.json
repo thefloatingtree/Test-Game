@@ -1,0 +1,20 @@
+{
+    "bundle": "goodBundle",
+    "scene": "goodScene",
+    "entities": [
+        {
+            "components": [
+                {
+                    "component": "componentName",
+                    "initialState": "initialStateJSON"
+                }
+            ]
+        }
+    ],
+    "systems": [
+        {
+            "system": "systemName",
+            "disabledDuringEditing": true
+        }
+    ]
+}

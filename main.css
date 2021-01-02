@@ -1,0 +1,63 @@
+
+.box[data-v-029c7eb8] {
+    padding-bottom: 0.5em;
+}
+.icon[data-v-029c7eb8] {
+    margin-left: 0.3em;
+}
+
+
+.child[data-v-33215e82] {
+    padding-left: 3em;
+}
+.level[data-v-33215e82] {
+    margin-bottom: 0;
+}
+.noSelect[data-v-33215e82] {
+    user-select: none;
+}
+.level-right[data-v-33215e82] {
+    margin-right: 1em;
+}
+
+
+.main[data-v-306e26fa] {
+    padding-bottom: 0.25em;
+}
+
+
+.box[data-v-9480a176] {
+    max-height: 80vh;
+}
+.entity-view[data-v-9480a176] {
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+
+.section {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.box {
+    width: 30em;
+}
+.columns {
+    margin-bottom: 0 !important;
+}
+.column {
+    display: flex;
+    align-items: center;
+}
+.pointer:hover {
+    cursor: pointer;
+}
+.hover-highlight:hover {
+    color: #3298dc;
+}
+.hover-highlight-danger:hover {
+    color: #f14668;
+}
+
