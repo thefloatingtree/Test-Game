@@ -1,11 +1,12 @@
 <template>
     <div>
-
         <div class="level">
             <div class="level-left pointer" @click="onClick">
                 <div class="level-item">
                     <div class="icon">
-                        <font-awesome-icon :icon="expanded ? 'angle-down' : 'angle-right'" />
+                        <font-awesome-icon
+                            :icon="expanded ? 'angle-down' : 'angle-right'"
+                        />
                     </div>
                 </div>
                 <div class="level-item">
@@ -25,18 +26,18 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                expanded: false
-            }
+export default {
+    data() {
+        return {
+            expanded: false,
+        };
+    },
+    methods: {
+        onClick() {
+            this.expanded = !this.expanded;
         },
-        methods: {
-            onClick() {
-                this.expanded = !this.expanded
-            }
-        },
-    }
+    },
+};
 </script>
 
 <style lang="scss" scoped>

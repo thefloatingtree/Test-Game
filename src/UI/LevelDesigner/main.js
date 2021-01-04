@@ -5,16 +5,16 @@ import VueRouter from 'vue-router'
 import Main from './Components/Main.vue'
 import Scene from './Components/Scene.vue'
 import SceneSettings from './Components/SceneSettings.vue'
+import AddSystem from './Components/AddSystem.vue'
+import AddEntity from './Components/AddEntity.vue'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faAngleDown, faAngleRight, faArrowLeft, faCog, faDownload, faPlus, faPlusSquare, faSyncAlt, faTrash, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { Position } from '../../../lib/Trengine/src/Components/Position'
-import { TwoPrimitiveShape } from '../../../lib/Trengine/src/Components/TwoPrimitiveShape'
-import { random } from '../../../lib/Trengine/src/Util'
+import SceneManager from "../../../lib/Trengine/src/SceneManager";
 
-export function createLevelDesignerUI(scene) {
+export function createLevelDesignerUI() {
 
     const appRoot = document.createElement('div')
     appRoot.id = "app"
@@ -29,9 +29,8 @@ export function createLevelDesignerUI(scene) {
     const routes = [
         { path: '/scene', component: Scene },
         { path: '/scene/settings', component: SceneSettings },
-        // { path: '/scene/add/entity', component: },
-        // { path: '/scene/add/system', component: },
-        // { path: '/scene/add/singleton', component: },
+        { path: '/scene/add/entity', component: AddEntity },
+        { path: '/scene/add/system', component: AddSystem },
     ]
 
     const router = new VueRouter({
@@ -50,15 +49,9 @@ export function createLevelDesignerUI(scene) {
 
     const store = new Vuex.Store({
         state: {
-            scene
-        },
-        mutations: {
-            addEntity(state) {
-                state.scene
-                    .createEntity()
-                    .addComponent(Position, { x: random(0, 500), y: random(0, 500) })
-                    .addComponent(TwoPrimitiveShape);
-            }
+            scene: null,
+            sceneData: null,
+            sceneManager: SceneManager
         }
     })
 
@@ -69,6 +62,6 @@ export function createLevelDesignerUI(scene) {
     }).$mount('#app')
 }
 
-export function destroyLevelDesignerVue(vm) {
+export function destroyLevelDesignerUI(vm) {
     vm.$destroy()
 }

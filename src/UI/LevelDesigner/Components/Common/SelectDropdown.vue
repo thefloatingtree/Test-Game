@@ -57,11 +57,17 @@ export default {
                 return [];
             },
         },
+        initial: {
+            type: String,
+            default() {
+                return this.items[0]
+            }
+        }
     },
     data() {
         return {
             isActive: false,
-            selected: this.items[0],
+            selected: this.initial,
         };
     },
     methods: {

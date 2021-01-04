@@ -2,7 +2,7 @@
     <Box>
         <div class="columns is-mobile">
             <div class="column">
-                <h1 class="title is-4">Add Entity</h1>
+                <h1 class="title is-4">Add System</h1>
             </div>
             <div class="pointer column is-narrow">
                 <div
@@ -14,17 +14,17 @@
             </div>
         </div>
         <div class="list">
-            <div v-for="entityData in entities" :key="entityData.name" class="box">
+            <div v-for="system in allSystems" :key="system.name" class="box">
                 <div class="level">
                     <div class="level-left">
                         <div class="level-item">
-                            {{ entityData.name }}
+                            {{ system.name }}
                         </div>
                     </div>
                     <div class="level-right">
                         <div class="level-item">
-                            <div class="button is-info" @click="addEntity(entityData)">
-                                Add Entity
+                            <div class="button is-info" :disabled="systemInScene(system.name)" @click="addSystem(system.name)">
+                                Add System
                             </div>
                         </div>
                     </div>
@@ -37,25 +37,38 @@
 <script>
 import Box from "./Common/BoxContainer.vue";
 
-import SceneManager from '../../../../lib/Trengine/src/SceneManager';
-
 export default {
+    components: {
+        Box,
+    },
     methods: {
-        addEntity(entityData) {
-            const scene = this.$store.state.scene
-            SceneManager.getEntityStore().addEntityToScene(entityData.name, scene)
+        addSystem(name) {
+            if (this.systemInScene(name)) return
+            const systemStore = this.$store.state.sceneManager.getSystemStore()
+            this.$store.state.scene.registerSystem(systemStore.getSystemByName(name))
+        },
+        systemInScene(name) {
+            return this.$store.state.scene.systems.some(system => system.constructor.name === name)
         }
     },
     computed: {
-        entities() {
-            return SceneManager.getEntityStore().entities
+        allSystems() {
+            return this.$store.state.sceneManager.getSystemStore().getSystems()
+        },
+        systems() {
+            return 
         }
-    },
-    components: {
-        Box,
     },
 };
 </script>
 
 <style lang="scss" scoped>
+.list {
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+.box {
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
 </style>

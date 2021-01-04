@@ -1,16 +1,25 @@
 <template>
     <div id="app">
         <Header />
-        <router-view></router-view>
+        <transition name="fade">
+            <keep-alive include="scene">
+                <router-view v-if="scene"></router-view>
+            </keep-alive>
+        </transition>
     </div>
 </template>
 
 <script>
-import Header from './Header.vue'
+import Header from "./Header.vue";
 
 export default {
+    computed: {
+        scene() {
+            return this.$store.state.scene;
+        },
+    },
     components: {
-        Header
+        Header,
     },
 };
 </script>
@@ -40,5 +49,22 @@ export default {
 }
 .no-select {
     user-select: none;
+}
+.fade-enter-active {
+    animation: 0.17s linear fade;
+}
+.fade-leave-active {
+    display: none;
+}
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.9
+    }
+    100% {
+        opacity: 1;
+    }
 }
 </style>

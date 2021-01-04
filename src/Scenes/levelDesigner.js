@@ -18,16 +18,5 @@ import { createLevelDesignerUI, destroyLevelDesignerVue } from '../UI/LevelDesig
 export function buildLevelDesignerScene() {
     const scene = new Scene()
 
-    scene
-        .registerSystem(CanvasRenderer)
-        .registerSystem(LevelDesignerController)
-        .registerSystem(Moving)
-
-    // scene.unRegisterSystem(LevelDesignerController)
-
-    scene.createEntity().addComponent(Position).addComponent(TwoPrimitiveShape)
-
-    createLevelDesignerUI(scene)
-
     return scene
 }

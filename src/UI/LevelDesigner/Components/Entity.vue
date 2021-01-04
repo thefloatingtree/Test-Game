@@ -4,7 +4,7 @@
             <div class="is-6 main no-select" slot="parent">
                 Entity
                 <span class="has-text-grey"
-                    >({{ entity.components.size }})</span
+                    >({{ entity.name }})</span
                 >
             </div>
             <div slot="child">

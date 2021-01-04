@@ -26,11 +26,8 @@
                 </div>
             </div>
             <div slot="options" class="pointer">
-                <div class="icon hover-highlight" @click="test">
+                <div class="icon hover-highlight" @click="refresh">
                     <font-awesome-icon icon="sync-alt" />
-                </div>
-                <div class="icon hover-highlight-danger">
-                    <font-awesome-icon icon="trash" />
                 </div>
             </div>
         </Node>
@@ -43,10 +40,11 @@ import Node from "./Common/Node.vue";
 export default {
     props: ["component"],
     methods: {
-        test() {
+        refresh() {
             this.$forceUpdate()
         },
         onPropertyChange(key, value) {
+            if (value === '') return
             const type = typeof this.component[key] 
             if (type === "number") {
                 this.component[key] = Number(value)

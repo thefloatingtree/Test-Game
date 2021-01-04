@@ -4,6 +4,9 @@
     "dataPath": "data/",
     "fontPath": "font/",
     "bundles": {
+        "default": [
+            
+        ],
         "main": [
             "RDRight.png",
             "RDLeft.png",

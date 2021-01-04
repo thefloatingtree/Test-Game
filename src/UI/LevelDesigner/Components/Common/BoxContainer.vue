@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="section">
-            <div class="box">
+            <div class="box wide">
                 <slot></slot>
             </div>
         </div>
@@ -13,7 +13,7 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.box {
+.wide {
     width: 32em;
     max-height: 80vh;
 }

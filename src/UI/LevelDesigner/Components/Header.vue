@@ -1,9 +1,15 @@
 <template>
     <Box>
+        <input
+            type="file"
+            ref="sceneFilePicker"
+            accept=".json,application/json"
+            v-on:change="recieveScene"
+        />
         <div class="shift-down">
             <div class="columns is-mobile">
                 <div class="column">
-                    <h1 class="title is-4">Scene Editor</h1>
+                    <h1 class="title is-4 no-select">Scene Editor</h1>
                 </div>
                 <div class="pointer column is-narrow">
                     <div
@@ -34,23 +40,45 @@
 </template>
 
 <script>
+import { Scene } from "../../../../lib/Trengine/src/ECS";
 import SceneManager from "../../../../lib/Trengine/src/SceneManager";
-import { downloadToFile } from '../../../../lib/Trengine/src/Util';
+import { downloadToFile } from "../../../../lib/Trengine/src/Util";
 
 import Box from "./Common/BoxContainer.vue";
 
 export default {
     methods: {
         exportScene() {
-            const data = JSON.stringify(SceneManager.saveScene('main'))
-            downloadToFile(data, 'main.json', 'text/JSON')
+            if (!this.$store.state.scene) return
+            const sceneData = this.$store.state.sceneData
+            const data = JSON.stringify(SceneManager.saveScene(sceneData.scene, sceneData.bundle));
+            downloadToFile(data, sceneData.scene + ".json", "text/JSON");
         },
         uploadScene() {
-
+            SceneManager.clearScenes()
+            this.$refs.sceneFilePicker.click();
+        },
+        recieveScene(event) {
+            const reader = new FileReader();
+            reader.onload = this.onSceneLoad;
+            reader.readAsText(event.target.files[0]);
+        },
+        async onSceneLoad(event) {
+            const sceneData = JSON.parse(event.target.result)
+            const scene = await SceneManager.loadScene(sceneData)
+            this.$store.state.scene = scene
+            SceneManager.registerScene(sceneData.scene, scene)
+            this.$store.state.sceneData = SceneManager.saveScene(sceneData.scene, sceneData.bundle)
+            console.log(this.$store.state.sceneData)
         },
         createScene() {
-
-        }
+            SceneManager.clearScenes()
+            const scene = new Scene();
+            this.$store.state.scene = scene;
+            SceneManager.registerScene("Unnamed Scene", scene);
+            this.$store.state.sceneData = SceneManager.saveScene("Unnamed Scene")
+            this.goTo("/scene/settings")
+        },
     },
     components: {
         Box,
@@ -64,5 +92,8 @@ export default {
 }
 .shift-down {
     margin-bottom: -0.7em;
+}
+input {
+    display: none;
 }
 </style>

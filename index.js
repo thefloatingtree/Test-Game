@@ -5,39 +5,100 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
-/* harmony import */ var _lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
-/* harmony import */ var _Scenes_levelDesigner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(23);
-/* harmony import */ var _Scenes_test__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(74);
+/* harmony import */ var _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(29);
+/* harmony import */ var _lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(30);
+/* harmony import */ var _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(128);
+/* harmony import */ var _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
+/* harmony import */ var _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var _lib_Trengine_src_Systems_CanvasRenderer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(31);
+/* harmony import */ var _lib_Trengine_src_Systems_MatterUpdater__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(36);
+/* harmony import */ var _lib_Trengine_src_Systems_ParticleUpdater__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(38);
+/* harmony import */ var _lib_Trengine_src_Systems_SpriteUpdater__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(39);
+/* harmony import */ var _Scenes_levelDesigner__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(23);
+/* harmony import */ var _Scenes_test__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(74);
+/* harmony import */ var _Systems_GameConfiguration__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(41);
+/* harmony import */ var _Systems_LevelDesignerController__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(42);
+/* harmony import */ var _Systems_PlayerController__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(43);
+/* harmony import */ var _UI_LevelDesigner_main__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(45);
 
 
 
 
 
 
-_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getInputManager()
-    .registerBinding('right', ['ARROWRIGHT', 'D'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
-    .registerBinding('left', ['ARROWLEFT', 'A'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
-    .registerBinding('jump', ['ARROWUP', 'W', 'SPACE'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.PRESSED)
-    .registerBinding('heldJump', ['ARROWUP', 'W'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
-    .registerBinding('down', ['ARROWDOWN', 'S'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
-    .registerBinding('heldShift', 'SHIFT', _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
 
-_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getAssetStore()
+
+
+
+
+
+
+
+
+
+_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getInputManager()
+    .registerBinding('right', ['ARROWRIGHT', 'D'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.DOWN)
+    .registerBinding('left', ['ARROWLEFT', 'A'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.DOWN)
+    .registerBinding('jump', ['ARROWUP', 'W', 'SPACE'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.PRESSED)
+    .registerBinding('heldJump', ['ARROWUP', 'W'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.DOWN)
+    .registerBinding('down', ['ARROWDOWN', 'S'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.DOWN)
+    .registerBinding('heldShift', 'SHIFT', _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.DOWN)
+
+_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getSystemStore()
+    .registerSystem(_lib_Trengine_src_Systems_CanvasRenderer__WEBPACK_IMPORTED_MODULE_5__.CanvasRenderer)
+    .registerSystem(_lib_Trengine_src_Systems_MatterUpdater__WEBPACK_IMPORTED_MODULE_6__.MatterUpdater)
+    .registerSystem(_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.Moving)
+    .registerSystem(_lib_Trengine_src_Systems_ParticleUpdater__WEBPACK_IMPORTED_MODULE_7__.ParticleUpdater)
+    .registerSystem(_lib_Trengine_src_Systems_SpriteUpdater__WEBPACK_IMPORTED_MODULE_8__.SpriteUpdater)
+    .registerSystem(_Systems_GameConfiguration__WEBPACK_IMPORTED_MODULE_11__.GameConfiguration)
+    .registerSystem(_Systems_LevelDesignerController__WEBPACK_IMPORTED_MODULE_12__.LevelDesignerController)
+    .registerSystem(_Systems_PlayerController__WEBPACK_IMPORTED_MODULE_13__.PlayerController)
+
+_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getEntityStore()
+    .registerEntity('Moving Rectangle')
+    .addComponent(_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.Position, [
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('x', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('y', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0)
+    ])
+    .addComponent(_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.Velocity, [
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('x', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 1),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('y', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0)
+    ])
+    .addComponent(_lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_0__.TwoPrimitiveShape, [
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('width', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('height', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('shape', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_0__.Shapes.rectangle),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('color', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Color, '#FFFFFF'),
+    ])
+
+_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getEntityStore()
+    .registerEntity('Rectangle')
+    .addComponent(_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.Position, [
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('x', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('y', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0)
+    ])
+    .addComponent(_lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_0__.TwoPrimitiveShape, [
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('width', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('height', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('shape', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_0__.Shapes.rectangle),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('color', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Color, '#FFFFFF'),
+    ])
+
+_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getAssetStore()
     .loadManifest('./assets/manifest.json')
     .then(async () => {
-        await _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getAssetStore().loadBundle('main')
+        await _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getAssetStore().loadBundle('main')
     })
     .then(() => {
-        _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.registerScene('main', (0,_Scenes_levelDesigner__WEBPACK_IMPORTED_MODULE_3__.buildLevelDesignerScene)())
+        (0,_UI_LevelDesigner_main__WEBPACK_IMPORTED_MODULE_14__.createLevelDesignerUI)()
+
         go()
     })
 
-const dt = new _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.DeltaTimer();
+const dt = new _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.DeltaTimer();
 let go = () => {
     requestAnimationFrame(go)
-    _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.update(dt.step())
+    _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.update(dt.step())
 }
 
 /***/ }),
@@ -110,6 +171,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
 /* harmony import */ var _AssetStore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
 /* harmony import */ var _UniqueIdStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(16);
+/* harmony import */ var _SystemStore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(115);
+/* harmony import */ var _EntityStore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(128);
+
+
 
 
 
@@ -131,7 +196,10 @@ class SceneManager {
         this._soundManager = new _SoundManager__WEBPACK_IMPORTED_MODULE_0__.SoundManager();
         this._inputManager = new _InputManager__WEBPACK_IMPORTED_MODULE_1__.InputManager();
         this._eventManager = new _EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager();
+
         this._assetStore = new _AssetStore__WEBPACK_IMPORTED_MODULE_4__.AssetStore();
+        this._systemStore = new _SystemStore__WEBPACK_IMPORTED_MODULE_6__.SystemStore();
+        this._entityStore = new _EntityStore__WEBPACK_IMPORTED_MODULE_7__.EntityStore();
         this._uniqueIdStore = new _UniqueIdStore__WEBPACK_IMPORTED_MODULE_5__.UniqueIdStore();
     }
 
@@ -155,6 +223,14 @@ class SceneManager {
         return this._assetStore;
     }
 
+    getSystemStore() {
+        return this._systemStore;
+    }
+
+    getEntityStore() {
+        return this._entityStore;
+    }
+
     getUniqueIdStore() {
         return this._uniqueIdStore;
     }
@@ -164,20 +240,32 @@ class SceneManager {
         this.scenes.set(name, new SceneContainer(scene, !!this.scenes.size)); // Paused by default unless it's the first
     }
 
-    saveScene(name) {
+    renameScene(current, next) {
+        const scene = this.scenes.get(current)
+        this.scenes.delete(current)
+        this.scenes.set(next, scene)
+    }
+
+    async loadScene(sceneData) {
+        await this.getAssetStore().loadBundle(sceneData.bundle)
+        const scene = new _ECS__WEBPACK_IMPORTED_MODULE_3__.Scene()
+        sceneData.systems.forEach(systemData => {
+            const System = this.getSystemStore().getSystemByName(systemData.system)
+            scene.registerSystem(System)
+        })
+        sceneData.entities.forEach(entityData => {
+            this.getEntityStore().addEntityDataToScene(entityData, scene)
+        })
+        return scene
+    }
+
+    saveScene(name, bundle = "") {
         const scene = this.getScene(name)
         const output = {
-            "bundle": "goodBundle",
+            "bundle": bundle,
             "scene": name,
             "entities": scene.entities.map(entity => {
-                return {
-                    "components": Array.from(entity.components.values()).map(component => {
-                        return { 
-                            "component": component.constructor.name,
-                            "initialValues": component
-                        }
-                    })
-                }
+                return this.getEntityStore().mapEntityToRegisteredEntity(entity)
             }),
             "systems": scene.systems.map(system => {
                 return {
@@ -187,6 +275,10 @@ class SceneManager {
             })
         }
         return output
+    }
+
+    clearScenes() {
+        this.scenes.clear()
     }
 
     getScene(name) {
@@ -3947,7 +4039,10 @@ class Scene {
     }
 
     registerSystem(System) {
-        this.systems.push(new System(this, this.queries));
+        const system = new System(this, this.queries)
+        if (!this.firstUpdate)
+            if (system.init) system.init(this);
+        this.systems.push(system);
         return this;
     }
 
@@ -3967,8 +4062,9 @@ class Scene {
         return this;
     }
 
-    createEntity() {
+    createEntity(name = "") {
         let newEntity = new _Entity__WEBPACK_IMPORTED_MODULE_0__.Entity(this);
+        newEntity.setName(name)
         this.entities.push(newEntity);
         return newEntity;
     }
@@ -4031,9 +4127,14 @@ __webpack_require__.r(__webpack_exports__);
 class Entity {
     constructor(scene) {
         this.scene = scene
+        this.name = ""
         this.id = (0,_Util__WEBPACK_IMPORTED_MODULE_0__.uuidv4)();
         this.components = new Map();
         this.componentTypes = [];
+    }
+
+    setName(name) {
+        this.name = name
     }
 
     addComponent(Component, initialState = {}) {
@@ -4579,17 +4680,6 @@ __webpack_require__.r(__webpack_exports__);
 
 function buildLevelDesignerScene() {
     const scene = new _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__.Scene()
-
-    scene
-        .registerSystem(_lib_Trengine_src_Systems_CanvasRenderer__WEBPACK_IMPORTED_MODULE_7__.CanvasRenderer)
-        .registerSystem(_Systems_LevelDesignerController__WEBPACK_IMPORTED_MODULE_13__.LevelDesignerController)
-        .registerSystem(_lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__.Moving)
-
-    // scene.unRegisterSystem(LevelDesignerController)
-
-    scene.createEntity().addComponent(_lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__.Position).addComponent(_lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_5__.TwoPrimitiveShape)
-
-    ;(0,_UI_LevelDesigner_main__WEBPACK_IMPORTED_MODULE_15__.createLevelDesignerUI)(scene)
 
     return scene
 }
@@ -25823,7 +25913,6 @@ class MatterBodies {
     }
 
     init() {
-        console.log(this.bodies)
         this.bodies.forEach(body => {
             body.mass = 200
             ___WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEventManager().send('MatterBodyAdded', body)
@@ -26367,7 +26456,7 @@ class PSExplosion extends _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.Particl
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createLevelDesignerUI": () => /* binding */ createLevelDesignerUI,
-/* harmony export */   "destroyLevelDesignerVue": () => /* binding */ destroyLevelDesignerVue
+/* harmony export */   "destroyLevelDesignerUI": () => /* binding */ destroyLevelDesignerUI
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(71);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(72);
@@ -26376,12 +26465,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Main_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(46);
 /* harmony import */ var _Components_Scene_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(75);
 /* harmony import */ var _Components_SceneSettings_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(101);
-/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(68);
+/* harmony import */ var _Components_AddSystem_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(116);
+/* harmony import */ var _Components_AddEntity_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(121);
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(68);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(70);
-/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(69);
-/* harmony import */ var _lib_Trengine_src_Components_Position__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(20);
-/* harmony import */ var _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(29);
-/* harmony import */ var _lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(15);
+/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(69);
+/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(2);
 
 
 
@@ -26398,14 +26487,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function createLevelDesignerUI(scene) {
+function createLevelDesignerUI() {
 
     const appRoot = document.createElement('div')
     appRoot.id = "app"
     document.body.insertBefore(appRoot, document.body.firstChild)
 
-    _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__.library.add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faPlusSquare, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faAngleDown, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faDownload, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faUpload, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faCog, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faPlus, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faAngleRight, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faTrash, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faSyncAlt, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faArrowLeft)
-    vue__WEBPACK_IMPORTED_MODULE_9__.default.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_4__.FontAwesomeIcon)
+    _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__.library.add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faPlusSquare, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faAngleDown, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faDownload, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faUpload, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faCog, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faPlus, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faAngleRight, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faTrash, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faSyncAlt, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faArrowLeft)
+    vue__WEBPACK_IMPORTED_MODULE_9__.default.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_6__.FontAwesomeIcon)
 
     vue__WEBPACK_IMPORTED_MODULE_9__.default.use((vuex__WEBPACK_IMPORTED_MODULE_10___default()))
     vue__WEBPACK_IMPORTED_MODULE_9__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_11__.default)
@@ -26413,9 +26502,8 @@ function createLevelDesignerUI(scene) {
     const routes = [
         { path: '/scene', component: _Components_Scene_vue__WEBPACK_IMPORTED_MODULE_1__.default },
         { path: '/scene/settings', component: _Components_SceneSettings_vue__WEBPACK_IMPORTED_MODULE_2__.default },
-        // { path: '/scene/add/entity', component: },
-        // { path: '/scene/add/system', component: },
-        // { path: '/scene/add/singleton', component: },
+        { path: '/scene/add/entity', component: _Components_AddEntity_vue__WEBPACK_IMPORTED_MODULE_4__.default },
+        { path: '/scene/add/system', component: _Components_AddSystem_vue__WEBPACK_IMPORTED_MODULE_3__.default },
     ]
 
     const router = new vue_router__WEBPACK_IMPORTED_MODULE_11__.default({
@@ -26434,15 +26522,9 @@ function createLevelDesignerUI(scene) {
 
     const store = new (vuex__WEBPACK_IMPORTED_MODULE_10___default().Store)({
         state: {
-            scene
-        },
-        mutations: {
-            addEntity(state) {
-                state.scene
-                    .createEntity()
-                    .addComponent(_lib_Trengine_src_Components_Position__WEBPACK_IMPORTED_MODULE_5__.Position, { x: (0,_lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_7__.random)(0, 500), y: (0,_lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_7__.random)(0, 500) })
-                    .addComponent(_lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_6__.TwoPrimitiveShape);
-            }
+            scene: null,
+            sceneData: null,
+            sceneManager: _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_7__.default
         }
     })
 
@@ -26453,7 +26535,7 @@ function createLevelDesignerUI(scene) {
     }).$mount('#app')
 }
 
-function destroyLevelDesignerVue(vm) {
+function destroyLevelDesignerUI(vm) {
     vm.$destroy()
 }
 
@@ -26524,7 +26606,23 @@ var render = function() {
   return _c(
     "div",
     { attrs: { id: "app" } },
-    [_c("Header"), _vm._v(" "), _c("router-view")],
+    [
+      _c("Header"),
+      _vm._v(" "),
+      _c(
+        "transition",
+        { attrs: { name: "fade" } },
+        [
+          _c(
+            "keep-alive",
+            { attrs: { include: "scene" } },
+            [_vm.scene ? _c("router-view") : _vm._e()],
+            1
+          )
+        ],
+        1
+      )
+    ],
     1
   )
 }
@@ -26562,12 +26660,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    computed: {
+        scene() {
+            return this.$store.state.scene;
+        },
+    },
     components: {
-        Header: _Header_vue__WEBPACK_IMPORTED_MODULE_0__.default
+        Header: _Header_vue__WEBPACK_IMPORTED_MODULE_0__.default,
     },
 });
 
@@ -26637,10 +26744,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("Box", [
+    _c("input", {
+      ref: "sceneFilePicker",
+      attrs: { type: "file", accept: ".json,application/json" },
+      on: { change: _vm.recieveScene }
+    }),
+    _vm._v(" "),
     _c("div", { staticClass: "shift-down" }, [
       _c("div", { staticClass: "columns is-mobile" }, [
         _c("div", { staticClass: "column" }, [
-          _c("h1", { staticClass: "title is-4" }, [_vm._v("Scene Editor")])
+          _c("h1", { staticClass: "title is-4 no-select" }, [
+            _vm._v("Scene Editor")
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "pointer column is-narrow" }, [
@@ -26713,9 +26828,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
-/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(56);
+/* harmony import */ var _lib_Trengine_src_ECS__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
+/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(56);
 //
 //
 //
@@ -26751,6 +26867,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -26760,18 +26883,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
     methods: {
         exportScene() {
-            const data = JSON.stringify(_lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__.default.saveScene('main'))
-            ;(0,_lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_1__.downloadToFile)(data, 'main.json', 'text/JSON')
+            if (!this.$store.state.scene) return
+            const sceneData = this.$store.state.sceneData
+            const data = JSON.stringify(_lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.saveScene(sceneData.scene, sceneData.bundle));
+            (0,_lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_2__.downloadToFile)(data, sceneData.scene + ".json", "text/JSON");
         },
         uploadScene() {
-
+            _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.clearScenes()
+            this.$refs.sceneFilePicker.click();
+        },
+        recieveScene(event) {
+            const reader = new FileReader();
+            reader.onload = this.onSceneLoad;
+            reader.readAsText(event.target.files[0]);
+        },
+        async onSceneLoad(event) {
+            const sceneData = JSON.parse(event.target.result)
+            const scene = await _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.loadScene(sceneData)
+            this.$store.state.scene = scene
+            _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.registerScene(sceneData.scene, scene)
+            this.$store.state.sceneData = _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.saveScene(sceneData.scene, sceneData.bundle)
+            console.log(this.$store.state.sceneData)
         },
         createScene() {
-
-        }
+            _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.clearScenes()
+            const scene = new _lib_Trengine_src_ECS__WEBPACK_IMPORTED_MODULE_0__.Scene();
+            this.$store.state.scene = scene;
+            _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.registerScene("Unnamed Scene", scene);
+            this.$store.state.sceneData = _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.saveScene("Unnamed Scene")
+            this.goTo("/scene/settings")
+        },
     },
     components: {
-        Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_2__.default,
+        Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_3__.default,
     },
 });
 
@@ -26842,7 +26986,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "section" }, [
-      _c("div", { staticClass: "box" }, [_vm._t("default")], 2)
+      _c("div", { staticClass: "box wide" }, [_vm._t("default")], 2)
     ])
   ])
 }
@@ -50061,7 +50205,7 @@ var render = function() {
   return _c("Box", [
     _c("div", { staticClass: "columns is-mobile" }, [
       _c("div", { staticClass: "column" }, [
-        _c("h1", { staticClass: "title is-4" }, [_vm._v("MainScene")])
+        _c("h1", { staticClass: "title is-4" }, [_vm._v(_vm._s(_vm.sceneName))])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "pointer column is-narrow" }, [
@@ -50110,19 +50254,6 @@ var render = function() {
                 }
               },
               [_c("a", [_vm._v("Systems")])]
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              {
-                class: { "is-active": _vm.selectedTab === 2 },
-                on: {
-                  click: function($event) {
-                    _vm.selectedTab = 2
-                  }
-                }
-              },
-              [_c("a", [_vm._v("Singletons")])]
             )
           ])
         ])
@@ -50131,10 +50262,7 @@ var render = function() {
       _c("div", { staticClass: "column is-narrow is-flex" }, [
         _c(
           "div",
-          {
-            staticClass: "button is-link is-light",
-            on: { click: _vm.addEntity }
-          },
+          { staticClass: "button is-link is-light", on: { click: _vm.onAdd } },
           [
             _c("span", [_vm._v(_vm._s(_vm.buttonName))]),
             _vm._v(" "),
@@ -50149,19 +50277,37 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container list" },
-      _vm._l(_vm.entities, function(entity) {
-        return _c(
-          "p",
-          { key: entity.id },
-          [_c("Entity", { attrs: { entity: entity } })],
-          1
+    _vm.selectedTab === 0
+      ? _c(
+          "div",
+          { staticClass: "container list" },
+          _vm._l(_vm.entities, function(entity) {
+            return _c(
+              "p",
+              { key: entity.id },
+              [_c("Entity", { attrs: { entity: entity } })],
+              1
+            )
+          }),
+          0
         )
-      }),
-      0
-    )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.selectedTab === 1
+      ? _c(
+          "div",
+          { staticClass: "container list" },
+          _vm._l(_vm.systems, function(system) {
+            return _c(
+              "p",
+              { key: system.constructor.name },
+              [_c("System", { attrs: { system: system } })],
+              1
+            )
+          }),
+          0
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -50196,7 +50342,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
 /* harmony import */ var _lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(15);
 /* harmony import */ var _Entity_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(80);
-/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(56);
+/* harmony import */ var _System_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(108);
+/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(56);
 //
 //
 //
@@ -50256,6 +50403,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -50267,9 +50420,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    name: "scene",
     data() {
         return {
-            buttonNames: ["Add Entity", "Add System", "Add Singleton"],
+            buttonNames: ["Add", "Add", "Add Singleton"],
             selectedTab: 0,
         };
     },
@@ -50277,20 +50431,24 @@ __webpack_require__.r(__webpack_exports__);
         entities() {
             return this.$store.state.scene.entities;
         },
+        systems() {
+            return this.$store.state.scene.systems;
+        },
         buttonName() {
             return this.buttonNames[this.selectedTab];
         },
+        sceneName() {
+            return this.$store.state.sceneData.scene;
+        }
     },
     methods: {
-        addEntity() {
-            this.$store.state.scene
-                .createEntity()
-                .addComponent(_lib_Trengine_src_Components_Position__WEBPACK_IMPORTED_MODULE_1__.Position, {
-                    x: (0,_lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_4__.random)(0, 500),
-                    y: (0,_lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_4__.random)(0, 500),
-                })
-                .addComponent(_lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_3__.TwoPrimitiveShape)
-                .addComponent(_lib_Trengine_src_Components_Velocity__WEBPACK_IMPORTED_MODULE_2__.Velocity, { x: 1, y: 0 });
+        onAdd() {
+            if (this.selectedTab === 0) {
+                this.$router.push('/scene/add/entity')
+            }
+            if (this.selectedTab === 1) {
+                this.$router.push('/scene/add/system')
+            }
         },
         selectTab(tab) {
             this.selectedTab = tab;
@@ -50298,7 +50456,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     components: {
         Entity: _Entity_vue__WEBPACK_IMPORTED_MODULE_5__.default,
-        Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_6__.default,
+        System: _System_vue__WEBPACK_IMPORTED_MODULE_6__.default,
+        Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_7__.default,
     },
 });
 
@@ -50381,7 +50540,7 @@ var render = function() {
           [
             _vm._v("\n            Entity\n            "),
             _c("span", { staticClass: "has-text-grey" }, [
-              _vm._v("(" + _vm._s(_vm.entity.components.size) + ")")
+              _vm._v("(" + _vm._s(_vm.entity.name) + ")")
             ])
           ]
         ),
@@ -50642,17 +50801,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
     data() {
         return {
-            expanded: false
-        }
+            expanded: false,
+        };
     },
     methods: {
         onClick() {
-            this.expanded = !this.expanded
-        }
+            this.expanded = !this.expanded;
+        },
     },
 });
 
@@ -50801,15 +50961,11 @@ var render = function() {
           [
             _c(
               "div",
-              { staticClass: "icon hover-highlight", on: { click: _vm.test } },
+              {
+                staticClass: "icon hover-highlight",
+                on: { click: _vm.refresh }
+              },
               [_c("font-awesome-icon", { attrs: { icon: "sync-alt" } })],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "icon hover-highlight-danger" },
-              [_c("font-awesome-icon", { attrs: { icon: "trash" } })],
               1
             )
           ]
@@ -50882,19 +51038,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
     props: ["component"],
     methods: {
-        test() {
+        refresh() {
             this.$forceUpdate()
         },
         onPropertyChange(key, value) {
+            if (value === '') return
             const type = typeof this.component[key] 
             if (type === "number") {
                 this.component[key] = Number(value)
@@ -51036,6 +51190,53 @@ var render = function() {
           1
         )
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "field" }, [
+      _c("label", { staticClass: "label" }, [_vm._v("Scene Name")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.sceneName,
+              expression: "sceneName"
+            }
+          ],
+          staticClass: "input",
+          attrs: { type: "text", placeholder: "Scene Name" },
+          domProps: { value: _vm.sceneName },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.sceneName = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "field" }, [
+      _c("label", { staticClass: "label" }, [_vm._v("Bundle")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "control" },
+        [
+          _c("select-dropdown", {
+            attrs: {
+              items: _vm.bundles,
+              initial: _vm.$store.state.sceneData.bundle
+            },
+            on: { "item-selected": _vm.onBundleSelect }
+          })
+        ],
+        1
+      )
     ])
   ])
 }
@@ -51065,6 +51266,493 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(56);
+/* harmony import */ var _Common_SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(129);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    components: {
+        Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+        SelectDropdown: _Common_SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_2__.default,
+    },
+    methods: {
+        onBundleSelect(bundle) {
+            this.$store.state.sceneData.bundle = bundle;
+        },
+    },
+    computed: {
+        bundles() {
+            return _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__.default.getAssetStore().getBundleNames();
+        },
+        sceneName: {
+            get() {
+                return this.$store.state.sceneData.scene
+            },
+            set(value) {
+                _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__.default.renameScene(this.$store.state.sceneData.scene, value)
+                this.$store.state.sceneData.scene = value
+            }
+        }
+    },
+});
+
+
+/***/ }),
+/* 106 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_style_index_0_id_c6c3ca94_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(107);
+
+
+/***/ }),
+/* 107 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+/* 108 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(109);
+/* harmony import */ var _System_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(111);
+/* harmony import */ var _System_vue_vue_type_style_index_0_id_a1b6a174_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(113);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(63);
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
+  _System_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "a1b6a174",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "src/UI/LevelDesigner/Components/System.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+/* 109 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(110);
+
+
+/***/ }),
+/* 110 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render,
+/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("Node", [
+    _c(
+      "div",
+      {
+        staticClass: "is-6 main no-select",
+        attrs: { slot: "parent" },
+        slot: "parent"
+      },
+      [_vm._v("\n        " + _vm._s(_vm.systemName) + "\n    ")]
+    ),
+    _vm._v(" "),
+    _c("div", { attrs: { slot: "child" }, slot: "child" }, [
+      _c("div", { staticClass: "field" }, [
+        _c("div", { staticClass: "control" }, [
+          _c("label", { staticClass: "checkbox" }, [
+            _c("input", { attrs: { type: "checkbox" } }),
+            _vm._v(
+              "\n                    Pause system when in editor\n                "
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "control" }, [
+          _c("label", { staticClass: "checkbox" }, [
+            _c("input", { attrs: { type: "checkbox" } }),
+            _vm._v(
+              "\n                    Pause system when in game\n                "
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "icon hover-highlight-danger",
+        attrs: { slot: "options" },
+        on: { click: _vm.deleteSystem },
+        slot: "options"
+      },
+      [_c("font-awesome-icon", { attrs: { icon: "trash" } })],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 111 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(112);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 112 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _Common_Node_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(85);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    props: ["system"],
+    computed: {
+        systemName() {
+            return this.system.constructor.name;
+        },
+    },
+    methods: {
+        deleteSystem() {
+            this.$store.state.scene.unRegisterSystem(this.system.constructor);
+        },
+    },
+    components: {
+        Node: _Common_Node_vue__WEBPACK_IMPORTED_MODULE_0__.default,
+    },
+});
+
+
+/***/ }),
+/* 113 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_style_index_0_id_a1b6a174_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(114);
+
+
+/***/ }),
+/* 114 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+/* 115 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SystemStore": () => /* binding */ SystemStore
+/* harmony export */ });
+class SystemStore {
+    constructor() {
+        this.systems = {}
+    }
+
+    registerSystem(System) {
+        this.systems[System.name] = System
+        return this
+    }
+
+    getSystemByName(name) {
+        return this.systems[name]
+    }
+
+    getSystems() {
+        return Object.values(this.systems)
+    }
+}
+
+/***/ }),
+/* 116 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(117);
+/* harmony import */ var _AddSystem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(119);
+/* harmony import */ var _AddSystem_vue_vue_type_style_index_0_id_5e6b4669_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(126);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(63);
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
+  _AddSystem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "5e6b4669",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "src/UI/LevelDesigner/Components/AddSystem.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+/* 117 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(118);
+
+
+/***/ }),
+/* 118 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render,
+/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("Box", [
+    _c("div", { staticClass: "columns is-mobile" }, [
+      _c("div", { staticClass: "column" }, [
+        _c("h1", { staticClass: "title is-4" }, [_vm._v("Add System")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "pointer column is-narrow" }, [
+        _c(
+          "div",
+          {
+            staticClass: "icon is-medium has-tooltip-arrow hover-highlight",
+            on: {
+              click: function($event) {
+                return _vm.goTo("/scene")
+              }
+            }
+          },
+          [
+            _c("font-awesome-icon", {
+              attrs: { icon: "arrow-left", size: "lg" }
+            })
+          ],
+          1
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "list" },
+      _vm._l(_vm.allSystems, function(system) {
+        return _c("div", { key: system.name, staticClass: "box" }, [
+          _c("div", { staticClass: "level" }, [
+            _c("div", { staticClass: "level-left" }, [
+              _c("div", { staticClass: "level-item" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(system.name) +
+                    "\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "level-right" }, [
+              _c("div", { staticClass: "level-item" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "button is-info",
+                    attrs: { disabled: _vm.systemInScene(system.name) },
+                    on: {
+                      click: function($event) {
+                        return _vm.addSystem(system.name)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                            Add System\n                        "
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 119 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(120);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 120 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
 /* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56);
 //
 //
@@ -51084,32 +51772,663 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
-    /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-        components: {
-            Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_0__.default,
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    components: {
+        Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_0__.default,
+    },
+    methods: {
+        addSystem(name) {
+            if (this.systemInScene(name)) return
+            const systemStore = this.$store.state.sceneManager.getSystemStore()
+            this.$store.state.scene.registerSystem(systemStore.getSystemByName(name))
         },
-    });
+        systemInScene(name) {
+            return this.$store.state.scene.systems.some(system => system.constructor.name === name)
+        }
+    },
+    computed: {
+        allSystems() {
+            return this.$store.state.sceneManager.getSystemStore().getSystems()
+        },
+        systems() {
+            return 
+        }
+    },
+});
 
 
 /***/ }),
-/* 106 */
+/* 121 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_style_index_0_id_c6c3ca94_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(107);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(122);
+/* harmony import */ var _AddEntity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(124);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(63);
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _AddEntity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "409683c6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "src/UI/LevelDesigner/Components/AddEntity.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+/* 122 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(123);
 
 
 /***/ }),
-/* 107 */
+/* 123 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render,
+/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("Box", [
+    _c("div", { staticClass: "columns is-mobile" }, [
+      _c("div", { staticClass: "column" }, [
+        _c("h1", { staticClass: "title is-4" }, [_vm._v("Add Entity")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "pointer column is-narrow" }, [
+        _c(
+          "div",
+          {
+            staticClass: "icon is-medium has-tooltip-arrow hover-highlight",
+            on: {
+              click: function($event) {
+                return _vm.goTo("/scene")
+              }
+            }
+          },
+          [
+            _c("font-awesome-icon", {
+              attrs: { icon: "arrow-left", size: "lg" }
+            })
+          ],
+          1
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "list" },
+      _vm._l(_vm.entities, function(entityData) {
+        return _c("div", { key: entityData.name, staticClass: "box" }, [
+          _c("div", { staticClass: "level" }, [
+            _c("div", { staticClass: "level-left" }, [
+              _c("div", { staticClass: "level-item" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(entityData.name) +
+                    "\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "level-right" }, [
+              _c("div", { staticClass: "level-item" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "button is-info",
+                    on: {
+                      click: function($event) {
+                        return _vm.addEntity(entityData)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                            Add Entity\n                        "
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 124 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(125);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 125 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56);
+/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    methods: {
+        addEntity(entityData) {
+            const scene = this.$store.state.scene
+            _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.getEntityStore().addEntityToScene(entityData.name, scene)
+        }
+    },
+    computed: {
+        entities() {
+            return _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.getEntityStore().entities
+        }
+    },
+    components: {
+        Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_0__.default,
+    },
+});
+
+
+/***/ }),
+/* 126 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_style_index_0_id_5e6b4669_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(127);
+
+
+/***/ }),
+/* 127 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
+
+
+/***/ }),
+/* 128 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Type": () => /* binding */ Type,
+/* harmony export */   "Property": () => /* binding */ Property,
+/* harmony export */   "EntityStore": () => /* binding */ EntityStore
+/* harmony export */ });
+const Type = Object.freeze({
+    Number: 0,
+    String: 1,
+    Color: 2,
+    Image: 3,
+    Tilemap: 4,
+    Object: 5,
+    Position: 6,
+    Vector2: 7
+})
+
+class Property {
+    constructor(name, type, value) {
+        this.name = name
+        this.type = type
+        this.value = value
+    }
+}
+
+class ComponentData {
+    constructor(Component, properties) {
+        this.Component = Component
+        this.properties = properties
+    }
+
+    getInitialState() {
+        const output = {}
+        this.properties.forEach(property => {
+            output[property.name] = property.value
+        })
+        return output
+    }
+}
+
+class EntityData {
+    constructor(name) {
+        this.name = name
+        this.components = {}
+    }
+
+    getAllComponentData() {
+        return Object.values(this.components)
+    }
+
+    addComponent(Component, properties) {
+        this.components[Component.name] = new ComponentData(Component, properties)
+        return this
+    }
+}
+
+class EntityStore {
+    constructor() {
+        this.entities = {}
+    }
+
+    mapEntityToRegisteredEntity(entity) {
+        if (!this.entities.hasOwnProperty(entity.name)) return
+        const registeredEntityData = this.entities[entity.name]
+        const entityData = new EntityData(entity.name)
+        registeredEntityData.getAllComponentData().forEach(componentData => {
+            const component = entity.getComponent(componentData.Component)
+            const properties = componentData.properties.map(property => {
+                return new Property(property.name, property.type, component[property.name])
+            })
+            entityData.addComponent(componentData.Component, properties)
+        })
+        return entityData
+    }
+
+    registerEntity(name) {
+        const entity = new EntityData(name)
+        this.entities[name] = entity
+        return entity
+    }
+
+    getEntityDataByName(name) {
+        return this.entities[name]
+    }
+
+    addEntityToScene(name, scene) {
+        const entityData = this.entities[name]
+        const entity = scene.createEntity(entityData.name)
+        entityData.getAllComponentData().forEach(componentData => {
+            entity.addComponent(componentData.Component, componentData.getInitialState())
+        })
+    }
+
+    addEntityDataToScene(rawEntityData, scene) {
+        const registeredEntityData = this.entities[rawEntityData.name]
+        const entityData = new EntityData(rawEntityData.name)
+        registeredEntityData.getAllComponentData().forEach(componentData => {
+            const component = rawEntityData.components[componentData.Component.name]
+            const properties = component.properties.map(property => {
+                return new Property(property.name, property.type, property.value)
+            })
+            entityData.addComponent(componentData.Component, properties)
+        })
+        const entity = scene.createEntity(entityData.name)
+        entityData.getAllComponentData().forEach(componentData => {
+            entity.addComponent(componentData.Component, componentData.getInitialState())
+        })
+    }
+}
+
+// SceneManager.getEntityStore()
+//     .createEntity("Nice")
+//     .addComponent(Component, [ new Property("x", Type.Number, 0), new Property("y", Type.Number, 0) ])
+
+/***/ }),
+/* 129 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(130);
+/* harmony import */ var _SelectDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(132);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(63);
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _SelectDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "4e3acc2a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "src/UI/LevelDesigner/Components/Common/SelectDropdown.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+/* 130 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(131);
+
+
+/***/ }),
+/* 131 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render,
+/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "click-outside",
+          rawName: "v-click-outside",
+          value: _vm.handleClickOutside,
+          expression: "handleClickOutside"
+        }
+      ],
+      staticClass: "dropdown",
+      class: { "is-active": _vm.isActive }
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "dropdown-trigger",
+          on: {
+            click: function($event) {
+              _vm.isActive = !_vm.isActive
+            }
+          }
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "button",
+              attrs: {
+                "aria-haspopup": "true",
+                "aria-controls": "dropdown-menu"
+              }
+            },
+            [
+              _c("span", [_vm._v(_vm._s(_vm.selected))]),
+              _vm._v(" "),
+              _c(
+                "span",
+                { staticClass: "icon is-small" },
+                [_c("font-awesome-icon", { attrs: { icon: "angle-down" } })],
+                1
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "dropdown-menu",
+          attrs: { id: "dropdown-menu", role: "menu" }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "dropdown-content" },
+            _vm._l(_vm.items, function(item) {
+              return _c(
+                "a",
+                {
+                  key: item,
+                  staticClass: "dropdown-item",
+                  class: { "is-active": item === _vm.selected },
+                  on: {
+                    click: function($event) {
+                      return _vm.itemSelected(item)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(item))]
+              )
+            }),
+            0
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 132 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(133);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 133 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(71);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+// Black magic from https://stackoverflow.com/questions/53013471/vuejs-2-custom-directive-to-close-when-clicked-outside-not-working
+vue__WEBPACK_IMPORTED_MODULE_0__.default.directive('click-outside', {
+    bind: function (el, binding, vnode) {
+        window.event = function (event) {
+            if (!(el == event.target || el.contains(event.target))) {
+                vnode.context[binding.expression](event);
+            }
+        };
+        document.body.addEventListener('click', window.event)
+    },
+    unbind: function (el) {
+        document.body.removeEventListener('click', window.event)
+    },
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    props: {
+        items: {
+            type: Array,
+            default() {
+                return [];
+            },
+        },
+        initial: {
+            type: String,
+            default() {
+                return this.items[0]
+            }
+        }
+    },
+    data() {
+        return {
+            isActive: false,
+            selected: this.initial,
+        };
+    },
+    methods: {
+        itemSelected(item) {
+            this.selected = item;
+            this.isActive = false;
+
+            this.$emit('item-selected', item)
+        },
+        handleClickOutside() {
+            this.isActive = false;
+        },
+    },
+});
 
 
 /***/ })
