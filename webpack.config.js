@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: "none",
-    target: "web",
+    target: "electron-renderer",
     entry: "./src/index.js",
     output: {
         path: __dirname + '/build/',
