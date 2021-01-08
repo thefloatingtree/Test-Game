@@ -65,13 +65,13 @@ SceneManager.getEntityStore()
     ])
 
 SceneManager.getAssetStore()
-    .loadManifest('./assets/manifest.json')
+    .loadManifest('../assets/manifest.json')
     .then(async () => {
         await SceneManager.getAssetStore().loadBundle('main')
     })
     .then(() => {
-        createLevelDesignerUI()
-
+        // createLevelDesignerUI()
+        SceneManager.registerScene('main', buildTestScene())
         go()
     })
 
