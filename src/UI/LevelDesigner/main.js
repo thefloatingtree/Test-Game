@@ -9,7 +9,7 @@ import AddSystem from './Components/AddSystem.vue'
 import AddEntity from './Components/AddEntity.vue'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faAngleDown, faAngleRight, faArrowLeft, faCog, faDownload, faPlus, faPlusSquare, faSyncAlt, faTrash, faUpload } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faAngleRight, faArchive, faArrowLeft, faBoxes, faBoxOpen, faCog, faDownload, faPlus, faPlusSquare, faSave, faSyncAlt, faTrash, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import SceneManager from "../../../lib/Trengine/src/SceneManager";
@@ -20,7 +20,7 @@ export function createLevelDesignerUI() {
     appRoot.id = "app"
     document.body.insertBefore(appRoot, document.body.firstChild)
 
-    library.add(faPlusSquare, faAngleDown, faDownload, faUpload, faCog, faPlus, faAngleRight, faTrash, faSyncAlt, faArrowLeft)
+    library.add(faPlusSquare, faAngleDown, faDownload, faUpload, faCog, faPlus, faAngleRight, faTrash, faSyncAlt, faArrowLeft, faSave, faArchive)
     Vue.component('font-awesome-icon', FontAwesomeIcon)
 
     Vue.use(Vuex)

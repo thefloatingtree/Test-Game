@@ -21,17 +21,17 @@
                     </div>
                     <div
                         class="icon is-medium has-tooltip-arrow hover-highlight"
-                        data-tooltip="Upload an existing scene"
+                        data-tooltip="Open existing scene"
                         @click="uploadScene"
                     >
-                        <font-awesome-icon icon="upload" size="lg" />
+                        <font-awesome-icon icon="archive" size="lg" />
                     </div>
                     <div
                         class="icon is-medium has-tooltip-arrow hover-highlight"
-                        data-tooltip="Export current scene"
+                        data-tooltip="Save current scene"
                         @click="exportScene"
                     >
-                        <font-awesome-icon icon="download" size="lg" />
+                        <font-awesome-icon icon="save" size="lg" />
                     </div>
                 </div>
             </div>
@@ -42,17 +42,18 @@
 <script>
 import { Scene } from "../../../../lib/Trengine/src/ECS";
 import SceneManager from "../../../../lib/Trengine/src/SceneManager";
-import { downloadToFile } from "../../../../lib/Trengine/src/Util";
 
 import Box from "./Common/BoxContainer.vue";
 
 export default {
     methods: {
-        exportScene() {
+        async exportScene() {
             if (!this.$store.state.scene) return
             const sceneData = this.$store.state.sceneData
-            const data = JSON.stringify(SceneManager.saveScene(sceneData.scene, sceneData.bundle));
-            downloadToFile(data, sceneData.scene + ".json", "text/JSON");
+            const mostRecentSceneData = SceneManager.saveScene(sceneData.scene, sceneData.bundle)
+            await SceneManager
+                .getAssetStore()
+                .saveJSONFile(mostRecentSceneData.fileName, mostRecentSceneData)
         },
         uploadScene() {
             SceneManager.clearScenes()

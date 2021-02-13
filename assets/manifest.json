@@ -5,7 +5,7 @@
     "fontPath": "font/",
     "bundles": {
         "default": [
-            
+            "test.level.json"
         ],
         "main": [
             "RDRight.png",

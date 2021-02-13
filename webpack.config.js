@@ -9,7 +9,7 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: __dirname + '/build/',
-        filename: "main.js",
+        filename: "bundle.js",
         globalObject: "this",
     },
     module: {

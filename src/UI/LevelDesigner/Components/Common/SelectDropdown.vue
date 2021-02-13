@@ -4,9 +4,9 @@
         :class="{ 'is-active': isActive }"
         v-click-outside="handleClickOutside"
     >
-        <div class="dropdown-trigger" @click="isActive = !isActive">
+        <div class="dropdown-trigger" @click="isActive = !isActive && !loading">
             <button
-                class="button"
+                class="button" :class="{ 'is-loading': loading }"
                 aria-haspopup="true"
                 aria-controls="dropdown-menu"
             >
@@ -61,6 +61,12 @@ export default {
             type: String,
             default() {
                 return this.items[0]
+            }
+        },
+        loading: {
+            type: Boolean,
+            default() {
+                return false
             }
         }
     },

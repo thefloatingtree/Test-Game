@@ -1,0 +1,120 @@
+{
+    "bundle": "main",
+    "scene": "Unnamed Scene",
+    "entities": [
+        {
+            "name": "Moving Rectangle",
+            "components": {
+                "Position": {
+                    "properties": [
+                        {
+                            "name": "x",
+                            "type": 0,
+                            "value": 103.26000000000013
+                        },
+                        {
+                            "name": "y",
+                            "type": 0,
+                            "value": 0
+                        }
+                    ]
+                },
+                "Velocity": {
+                    "properties": [
+                        {
+                            "name": "x",
+                            "type": 0,
+                            "value": 1
+                        },
+                        {
+                            "name": "y",
+                            "type": 0,
+                            "value": 0
+                        }
+                    ]
+                },
+                "TwoPrimitiveShape": {
+                    "properties": [
+                        {
+                            "name": "width",
+                            "type": 0,
+                            "value": 10
+                        },
+                        {
+                            "name": "height",
+                            "type": 0,
+                            "value": 10
+                        },
+                        {
+                            "name": "shape",
+                            "type": 0,
+                            "value": 1
+                        },
+                        {
+                            "name": "color",
+                            "type": 2,
+                            "value": "#FFFFFF"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Rectangle",
+            "components": {
+                "Position": {
+                    "properties": [
+                        {
+                            "name": "x",
+                            "type": 0,
+                            "value": 0
+                        },
+                        {
+                            "name": "y",
+                            "type": 0,
+                            "value": 0
+                        }
+                    ]
+                },
+                "TwoPrimitiveShape": {
+                    "properties": [
+                        {
+                            "name": "width",
+                            "type": 0,
+                            "value": 10
+                        },
+                        {
+                            "name": "height",
+                            "type": 0,
+                            "value": 10
+                        },
+                        {
+                            "name": "shape",
+                            "type": 0,
+                            "value": 1
+                        },
+                        {
+                            "name": "color",
+                            "type": 2,
+                            "value": "#FFFFFF"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "systems": [
+        {
+            "system": "CanvasRenderer",
+            "disabledDuringEditing": false
+        },
+        {
+            "system": "Moving",
+            "disabledDuringEditing": false
+        },
+        {
+            "system": "LevelDesignerController",
+            "disabledDuringEditing": false
+        }
+    ]
+}

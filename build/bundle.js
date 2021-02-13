@@ -5,277 +5,46 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
-/* harmony import */ var _lib_Trengine_src_Systems_CanvasRenderer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(28);
-/* harmony import */ var _lib_Trengine_src_Systems_MatterUpdater__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(36);
-/* harmony import */ var _lib_Trengine_src_Systems_ParticleUpdater__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(38);
-/* harmony import */ var _lib_Trengine_src_Systems_SpriteUpdater__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(39);
-/* harmony import */ var _Scenes_levelDesigner__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(40);
-/* harmony import */ var _Scenes_test__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(134);
-/* harmony import */ var _Systems_GameConfiguration__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(44);
-/* harmony import */ var _Systems_LevelDesignerController__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(45);
-/* harmony import */ var _Systems_PlayerController__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(46);
-/* harmony import */ var _UI_LevelDesigner_main__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(48);
+/* harmony import */ var _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _RegisterSystems__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(27);
+/* harmony import */ var _RegisterEntities__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(48);
+/* harmony import */ var _UI_LevelDesigner_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(49);
 
 
 
 
 
 
+_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getInputManager()
+    .registerBinding('right', ['ARROWRIGHT', 'D'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
+    .registerBinding('left', ['ARROWLEFT', 'A'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
+    .registerBinding('jump', ['ARROWUP', 'W', 'SPACE'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.PRESSED)
+    .registerBinding('heldJump', ['ARROWUP', 'W'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
+    .registerBinding('down', ['ARROWDOWN', 'S'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
+    .registerBinding('heldShift', 'SHIFT', _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_1__.DOWN)
 
-
-
-
-
-
-
-
-
-
-_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getInputManager()
-    .registerBinding('right', ['ARROWRIGHT', 'D'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.DOWN)
-    .registerBinding('left', ['ARROWLEFT', 'A'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.DOWN)
-    .registerBinding('jump', ['ARROWUP', 'W', 'SPACE'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.PRESSED)
-    .registerBinding('heldJump', ['ARROWUP', 'W'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.DOWN)
-    .registerBinding('down', ['ARROWDOWN', 'S'], _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.DOWN)
-    .registerBinding('heldShift', 'SHIFT', _lib_Trengine_src_InputManager__WEBPACK_IMPORTED_MODULE_4__.DOWN)
-
-_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getSystemStore()
-    .registerSystem(_lib_Trengine_src_Systems_CanvasRenderer__WEBPACK_IMPORTED_MODULE_5__.CanvasRenderer)
-    .registerSystem(_lib_Trengine_src_Systems_MatterUpdater__WEBPACK_IMPORTED_MODULE_6__.MatterUpdater)
-    .registerSystem(_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.Moving)
-    .registerSystem(_lib_Trengine_src_Systems_ParticleUpdater__WEBPACK_IMPORTED_MODULE_7__.ParticleUpdater)
-    .registerSystem(_lib_Trengine_src_Systems_SpriteUpdater__WEBPACK_IMPORTED_MODULE_8__.SpriteUpdater)
-    .registerSystem(_Systems_GameConfiguration__WEBPACK_IMPORTED_MODULE_11__.GameConfiguration)
-    .registerSystem(_Systems_LevelDesignerController__WEBPACK_IMPORTED_MODULE_12__.LevelDesignerController)
-    .registerSystem(_Systems_PlayerController__WEBPACK_IMPORTED_MODULE_13__.PlayerController)
-
-_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getEntityStore()
-    .registerEntity('Moving Rectangle')
-    .addComponent(_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.Position, [
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('x', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0),
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('y', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0)
-    ])
-    .addComponent(_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.Velocity, [
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('x', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 1),
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('y', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0)
-    ])
-    .addComponent(_lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_0__.TwoPrimitiveShape, [
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('width', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('height', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('shape', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_0__.Shapes.rectangle),
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('color', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Color, '#FFFFFF'),
-    ])
-
-_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getEntityStore()
-    .registerEntity('Rectangle')
-    .addComponent(_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.Position, [
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('x', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0),
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('y', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0)
-    ])
-    .addComponent(_lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_0__.TwoPrimitiveShape, [
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('width', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('height', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('shape', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_0__.Shapes.rectangle),
-        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('color', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Color, '#FFFFFF'),
-    ])
-
-_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getAssetStore()
+_lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getAssetStore()
     .loadManifest('../assets/manifest.json')
     .then(async () => {
-        await _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.getAssetStore().loadBundle('main')
+        await _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getAssetStore().loadBundle('default')
     })
     .then(() => {
-        // createLevelDesignerUI()
-        _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.registerScene('main', (0,_Scenes_test__WEBPACK_IMPORTED_MODULE_10__.buildTestScene)())
+        (0,_RegisterSystems__WEBPACK_IMPORTED_MODULE_2__.registerSystems)()
+        ;(0,_RegisterEntities__WEBPACK_IMPORTED_MODULE_3__.registerEntities)()
+        ;(0,_UI_LevelDesigner_main__WEBPACK_IMPORTED_MODULE_4__.createLevelDesignerUI)()
+
         go()
     })
 
-const dt = new _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.DeltaTimer();
+const dt = new _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.DeltaTimer()
 let go = () => {
     requestAnimationFrame(go)
-    _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_3__.SceneManager.update(dt.step())
+    _lib_Trengine_src_index__WEBPACK_IMPORTED_MODULE_0__.SceneManager.update(dt.step())
 }
 
 /***/ }),
 /* 1 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Shapes": () => /* binding */ Shapes,
-/* harmony export */   "TwoPrimitiveShape": () => /* binding */ TwoPrimitiveShape
-/* harmony export */ });
-
-const Shapes = Object.freeze({
-    rectangle: 1,
-    ellipse: 2
-})
-
-class TwoPrimitiveShape {
-    constructor() {
-        this.width = this.height = 10;
-        this.shape = Shapes.rectangle;
-        this.color = '#FFFFFF'
-    }
-}
-
-/***/ }),
-/* 2 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "TwoSprite": () => /* binding */ TwoSprite
-/* harmony export */ });
-class TwoSprite {
-    constructor() {
-        this.texture
-        this.originalWidth
-        this.originalHeight
-        this.scaledWidth
-        this.scaledHeight
-        this.centerX
-        this.centerY
-        this.scale = 1
-        this.rotation = 0
-        this.renderOffsetX = 0
-        this.renderOffsetY = 0
-    }
-
-    init() {
-        this.originalWidth = this.texture.width
-        this.originalHeight = this.texture.height
-    }
-}
-
-/***/ }),
-/* 3 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Type": () => /* binding */ Type,
-/* harmony export */   "Property": () => /* binding */ Property,
-/* harmony export */   "EntityStore": () => /* binding */ EntityStore
-/* harmony export */ });
-const Type = Object.freeze({
-    Number: 0,
-    String: 1,
-    Color: 2,
-    Image: 3,
-    Tilemap: 4,
-    Object: 5,
-    Position: 6,
-    Vector2: 7
-})
-
-class Property {
-    constructor(name, type, value) {
-        this.name = name
-        this.type = type
-        this.value = value
-    }
-}
-
-class ComponentData {
-    constructor(Component, properties) {
-        this.Component = Component
-        this.properties = properties
-    }
-
-    getInitialState() {
-        const output = {}
-        this.properties.forEach(property => {
-            output[property.name] = property.value
-        })
-        return output
-    }
-}
-
-class EntityData {
-    constructor(name) {
-        this.name = name
-        this.components = {}
-    }
-
-    getAllComponentData() {
-        return Object.values(this.components)
-    }
-
-    addComponent(Component, properties) {
-        this.components[Component.name] = new ComponentData(Component, properties)
-        return this
-    }
-}
-
-class EntityStore {
-    constructor() {
-        this.entities = {}
-    }
-
-    mapEntityToRegisteredEntity(entity) {
-        if (!this.entities.hasOwnProperty(entity.name)) return
-        const registeredEntityData = this.entities[entity.name]
-        const entityData = new EntityData(entity.name)
-        registeredEntityData.getAllComponentData().forEach(componentData => {
-            const component = entity.getComponent(componentData.Component)
-            const properties = componentData.properties.map(property => {
-                return new Property(property.name, property.type, component[property.name])
-            })
-            entityData.addComponent(componentData.Component, properties)
-        })
-        return entityData
-    }
-
-    registerEntity(name) {
-        const entity = new EntityData(name)
-        this.entities[name] = entity
-        return entity
-    }
-
-    getEntityDataByName(name) {
-        return this.entities[name]
-    }
-
-    addEntityToScene(name, scene) {
-        const entityData = this.entities[name]
-        const entity = scene.createEntity(entityData.name)
-        entityData.getAllComponentData().forEach(componentData => {
-            entity.addComponent(componentData.Component, componentData.getInitialState())
-        })
-    }
-
-    addEntityDataToScene(rawEntityData, scene) {
-        const registeredEntityData = this.entities[rawEntityData.name]
-        const entityData = new EntityData(rawEntityData.name)
-        registeredEntityData.getAllComponentData().forEach(componentData => {
-            const component = rawEntityData.components[componentData.Component.name]
-            const properties = component.properties.map(property => {
-                return new Property(property.name, property.type, property.value)
-            })
-            entityData.addComponent(componentData.Component, properties)
-        })
-        const entity = scene.createEntity(entityData.name)
-        entityData.getAllComponentData().forEach(componentData => {
-            entity.addComponent(componentData.Component, componentData.getInitialState())
-        })
-    }
-}
-
-// SceneManager.getEntityStore()
-//     .createEntity("Nice")
-//     .addComponent(Component, [ new Property("x", Type.Number, 0), new Property("y", Type.Number, 0) ])
-
-/***/ }),
-/* 4 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -299,16 +68,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Velocity": () => /* reexport safe */ _Components_Velocity__WEBPACK_IMPORTED_MODULE_8__.Velocity,
 /* harmony export */   "Moving": () => /* reexport safe */ _Systems_Moving__WEBPACK_IMPORTED_MODULE_9__.Moving
 /* harmony export */ });
-/* harmony import */ var _SceneManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-/* harmony import */ var _DeltaTimer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(22);
-/* harmony import */ var _UI_UIManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(23);
-/* harmony import */ var _Particles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(24);
-/* harmony import */ var _AssetStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(17);
-/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(18);
-/* harmony import */ var _Components_Position__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(25);
-/* harmony import */ var _Components_Velocity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(26);
-/* harmony import */ var _Systems_Moving__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(27);
+/* harmony import */ var _SceneManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var _DeltaTimer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
+/* harmony import */ var _UI_UIManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(22);
+/* harmony import */ var _Particles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(23);
+/* harmony import */ var _AssetStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(14);
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(15);
+/* harmony import */ var _Components_Position__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(24);
+/* harmony import */ var _Components_Velocity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(25);
+/* harmony import */ var _Systems_Moving__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(26);
 // Engine
 
 
@@ -330,7 +99,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 5 */
+/* 2 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -338,14 +107,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _SoundManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
-/* harmony import */ var _InputManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
-/* harmony import */ var _EventManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
-/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(11);
-/* harmony import */ var _AssetStore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(17);
-/* harmony import */ var _UniqueIdStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(20);
-/* harmony import */ var _SystemStore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(21);
-/* harmony import */ var _EntityStore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(3);
+/* harmony import */ var _SoundManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _InputManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _EventManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
+/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
+/* harmony import */ var _AssetStore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
+/* harmony import */ var _UniqueIdStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(18);
+/* harmony import */ var _SystemStore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(19);
+/* harmony import */ var _EntityStore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(20);
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(15);
+
 
 
 
@@ -419,6 +190,14 @@ class SceneManager {
         this.scenes.set(next, scene)
     }
 
+    renameScene(oldName, newName, sceneData) {
+        const scene = this.scenes.get(oldName)
+        this.scenes.delete(oldName)
+        this.scenes.set(newName, scene)
+
+        
+    }
+
     async loadScene(sceneData) {
         await this.getAssetStore().loadBundle(sceneData.bundle)
         const scene = new _ECS__WEBPACK_IMPORTED_MODULE_3__.Scene()
@@ -437,6 +216,7 @@ class SceneManager {
         const output = {
             "bundle": bundle,
             "scene": name,
+            "fileName": (0,_Util__WEBPACK_IMPORTED_MODULE_8__.toCamelCase)(name) + ".level.json",
             "entities": scene.entities.map(entity => {
                 return this.getEntityStore().mapEntityToRegisteredEntity(entity)
             }),
@@ -498,7 +278,7 @@ function createCanvasContext() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Object.freeze(new SceneManager())); // Export as a singleton
 
 /***/ }),
-/* 6 */
+/* 3 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -506,7 +286,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SoundManager": () => /* binding */ SoundManager
 /* harmony export */ });
-/* harmony import */ var howler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
+/* harmony import */ var howler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /* harmony import */ var howler__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(howler__WEBPACK_IMPORTED_MODULE_0__);
 
 
@@ -525,7 +305,7 @@ class SoundManager {
 }
 
 /***/ }),
-/* 7 */
+/* 4 */
 /***/ ((module, exports) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -3725,7 +3505,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 8 */
+/* 5 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3736,7 +3516,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "DOWN": () => /* binding */ DOWN,
 /* harmony export */   "InputManager": () => /* binding */ InputManager
 /* harmony export */ });
-/* harmony import */ var _lib_pinput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var _lib_pinput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 
 
 const RELEASED = "released";
@@ -3824,7 +3604,7 @@ class InputManager {
 }
 
 /***/ }),
-/* 9 */
+/* 6 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4086,7 +3866,7 @@ function init() {
 };
 
 /***/ }),
-/* 10 */
+/* 7 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4155,7 +3935,7 @@ class EventManager {
 }
 
 /***/ }),
-/* 11 */
+/* 8 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4164,13 +3944,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Scene": () => /* reexport safe */ _Scene__WEBPACK_IMPORTED_MODULE_0__.Scene,
 /* harmony export */   "System": () => /* reexport safe */ _System__WEBPACK_IMPORTED_MODULE_1__.System
 /* harmony export */ });
-/* harmony import */ var _Scene__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
-/* harmony import */ var _System__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(16);
+/* harmony import */ var _Scene__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var _System__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
 
 
 
 /***/ }),
-/* 12 */
+/* 9 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4178,9 +3958,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Scene": () => /* binding */ Scene
 /* harmony export */ });
-/* harmony import */ var _Entity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var _Query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
-/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
+/* harmony import */ var _Entity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
+/* harmony import */ var _Query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
 
 
 
@@ -4286,7 +4066,7 @@ class Scene {
 }
 
 /***/ }),
-/* 13 */
+/* 10 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4294,7 +4074,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Entity": () => /* binding */ Entity
 /* harmony export */ });
-/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
 
 
 class Entity {
@@ -4354,7 +4134,7 @@ class Entity {
 }
 
 /***/ }),
-/* 14 */
+/* 11 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4373,7 +4153,7 @@ function uuidv4() {
 
 
 /***/ }),
-/* 15 */
+/* 12 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4395,7 +4175,7 @@ class Query {
 }
 
 /***/ }),
-/* 16 */
+/* 13 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4411,7 +4191,7 @@ class System {
 }
 
 /***/ }),
-/* 17 */
+/* 14 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4419,14 +4199,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AssetStore": () => /* binding */ AssetStore
 /* harmony export */ });
-/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
-/* harmony import */ var howler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
+/* harmony import */ var howler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var howler__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(howler__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
+/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
 /* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(135);
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(17);
 /* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_3__);
-
 
 
 
@@ -4445,6 +4224,7 @@ class AssetStore {
         this._imagePath = ''
         this._soundPath = ''
         this._dataPath = ''
+        this._loadedBundles = []
 
         this.images = {}
         this.sounds = {}
@@ -4459,13 +4239,16 @@ class AssetStore {
                 this._soundPath = rootPath + manifest.soundPath
                 this._dataPath = rootPath + manifest.dataPath
                 this._manifest = manifest
-
-                console.log(fs__WEBPACK_IMPORTED_MODULE_2___default().readdirSync(path__WEBPACK_IMPORTED_MODULE_3___default().resolve(__dirname, this._imagePath)))
             })
     }
 
     loadBundle(bundle) {
         if (this._manifest == null) throw "Asset manifest has not been loaded"
+
+        if (this._loadedBundles.includes(bundle)) return Promise.resolve()
+        this._loadedBundles.push(bundle)
+
+        console.log(this._loadedBundles)
 
         const assetList = this._manifest.bundles[bundle]
         const typesAndAssets = assetList.map(asset => {
@@ -4505,9 +4288,16 @@ class AssetStore {
     getBundleNames() {
         return Object.keys(this._manifest.bundles)
     }
-    
-    makeBundle(name) {
-        this._manifest
+
+    async saveJSONFile(fileName, data) {
+        await fs__WEBPACK_IMPORTED_MODULE_2__.promises.writeFile(path__WEBPACK_IMPORTED_MODULE_3___default().join(__dirname, this._dataPath, fileName), JSON.stringify(data))
+    }
+
+    async renameJSONFile(oldFileName, newFileName) {
+        await fs__WEBPACK_IMPORTED_MODULE_2__.promises.rename(
+            path__WEBPACK_IMPORTED_MODULE_3___default().join(__dirname, this._dataPath, oldFileName),
+            path__WEBPACK_IMPORTED_MODULE_3___default().join(__dirname, this._dataPath, newFileName)
+        )
     }
 
     _getAssetType(asset) {
@@ -4541,7 +4331,7 @@ class AssetStore {
 }
 
 /***/ }),
-/* 18 */
+/* 15 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4553,7 +4343,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "randomBool": () => /* binding */ randomBool,
 /* harmony export */   "randomSign": () => /* binding */ randomSign,
 /* harmony export */   "loadImage": () => /* binding */ loadImage,
-/* harmony export */   "downloadToFile": () => /* binding */ downloadToFile
+/* harmony export */   "downloadToFile": () => /* binding */ downloadToFile,
+/* harmony export */   "toCamelCase": () => /* binding */ toCamelCase
 /* harmony export */ });
 function AABBCollision(x1, y1, w1, h1, x2, y2, w2, h2) {
     return (
@@ -4599,15 +4390,30 @@ function downloadToFile(content, filename, contentType) {
     URL.revokeObjectURL(a.href);
 }
 
+function toCamelCase(str) {
+    const words = str.split(" ")
+    return words.shift().toLowerCase() + words.map(word => { 
+        var lower = word.toLowerCase() 
+        return lower[0].toUpperCase() + lower.substring(1)
+    }).join('')
+}
+
 /***/ }),
-/* 19 */
+/* 16 */
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("fs");;
 
 /***/ }),
-/* 20 */
+/* 17 */
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("path");;
+
+/***/ }),
+/* 18 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4628,7 +4434,7 @@ class UniqueIdStore {
 }
 
 /***/ }),
-/* 21 */
+/* 19 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4656,7 +4462,126 @@ class SystemStore {
 }
 
 /***/ }),
-/* 22 */
+/* 20 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Type": () => /* binding */ Type,
+/* harmony export */   "Property": () => /* binding */ Property,
+/* harmony export */   "EntityStore": () => /* binding */ EntityStore
+/* harmony export */ });
+const Type = Object.freeze({
+    Number: 0,
+    String: 1,
+    Color: 2,
+    Image: 3,
+    Tilemap: 4,
+    Object: 5,
+    Position: 6,
+    Vector2: 7
+})
+
+class Property {
+    constructor(name, type, value) {
+        this.name = name
+        this.type = type
+        this.value = value
+    }
+}
+
+class ComponentData {
+    constructor(Component, properties) {
+        this.Component = Component
+        this.properties = properties
+    }
+
+    getInitialState() {
+        const output = {}
+        this.properties.forEach(property => {
+            output[property.name] = property.value
+        })
+        return output
+    }
+}
+
+class EntityData {
+    constructor(name) {
+        this.name = name
+        this.components = {}
+    }
+
+    getAllComponentData() {
+        return Object.values(this.components)
+    }
+
+    addComponent(Component, properties) {
+        this.components[Component.name] = new ComponentData(Component, properties)
+        return this
+    }
+}
+
+class EntityStore {
+    constructor() {
+        this.entities = {}
+    }
+
+    mapEntityToRegisteredEntity(entity) {
+        if (!this.entities.hasOwnProperty(entity.name)) return
+        const registeredEntityData = this.entities[entity.name]
+        const entityData = new EntityData(entity.name)
+        registeredEntityData.getAllComponentData().forEach(componentData => {
+            const component = entity.getComponent(componentData.Component)
+            const properties = componentData.properties.map(property => {
+                return new Property(property.name, property.type, component[property.name])
+            })
+            entityData.addComponent(componentData.Component, properties)
+        })
+        return entityData
+    }
+
+    registerEntity(name) {
+        const entity = new EntityData(name)
+        this.entities[name] = entity
+        return entity
+    }
+
+    getEntityDataByName(name) {
+        return this.entities[name]
+    }
+
+    addEntityToScene(name, scene) {
+        const entityData = this.entities[name]
+        const entity = scene.createEntity(entityData.name)
+        entityData.getAllComponentData().forEach(componentData => {
+            entity.addComponent(componentData.Component, componentData.getInitialState())
+        })
+    }
+
+    addEntityDataToScene(rawEntityData, scene) {
+        const registeredEntityData = this.entities[rawEntityData.name]
+        const entityData = new EntityData(rawEntityData.name)
+        registeredEntityData.getAllComponentData().forEach(componentData => {
+            const component = rawEntityData.components[componentData.Component.name]
+            const properties = component.properties.map(property => {
+                return new Property(property.name, property.type, property.value)
+            })
+            entityData.addComponent(componentData.Component, properties)
+        })
+        const entity = scene.createEntity(entityData.name)
+        entityData.getAllComponentData().forEach(componentData => {
+            entity.addComponent(componentData.Component, componentData.getInitialState())
+        })
+    }
+}
+
+// SceneManager.getEntityStore()
+//     .createEntity("Nice")
+//     .addComponent(Component, [ new Property("x", Type.Number, 0), new Property("y", Type.Number, 0) ])
+
+/***/ }),
+/* 21 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4691,7 +4616,7 @@ class DeltaTimer {
 }
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4731,7 +4656,7 @@ class UIElement {
 }
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4792,7 +4717,7 @@ class Particle {
 }
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4807,7 +4732,7 @@ class Position {
 }
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4822,7 +4747,7 @@ class Velocity {
 }
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4830,9 +4755,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Moving": () => /* binding */ Moving
 /* harmony export */ });
-/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
-/* harmony import */ var _Components_Position__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
-/* harmony import */ var _Components_Velocity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26);
+/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var _Components_Position__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
+/* harmony import */ var _Components_Velocity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(25);
 
 
 
@@ -4853,6 +4778,45 @@ class Moving extends _ECS__WEBPACK_IMPORTED_MODULE_0__.System {
 }
 
 /***/ }),
+/* 27 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "registerSystems": () => /* binding */ registerSystems
+/* harmony export */ });
+/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _lib_Trengine_src_Systems_CanvasRenderer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28);
+/* harmony import */ var _lib_Trengine_src_Systems_MatterUpdater__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(38);
+/* harmony import */ var _lib_Trengine_src_Systems_ParticleUpdater__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(40);
+/* harmony import */ var _lib_Trengine_src_Systems_SpriteUpdater__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(41);
+/* harmony import */ var _Systems_GameConfiguration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(42);
+/* harmony import */ var _Systems_LevelDesignerController__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(43);
+/* harmony import */ var _Systems_PlayerController__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(44);
+
+
+
+
+
+
+
+
+
+
+function registerSystems() {
+    _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getSystemStore()
+        .registerSystem(_lib_Trengine_src_Systems_CanvasRenderer__WEBPACK_IMPORTED_MODULE_1__.CanvasRenderer)
+        .registerSystem(_lib_Trengine_src_Systems_MatterUpdater__WEBPACK_IMPORTED_MODULE_2__.MatterUpdater)
+        .registerSystem(_lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.Moving)
+        .registerSystem(_lib_Trengine_src_Systems_ParticleUpdater__WEBPACK_IMPORTED_MODULE_3__.ParticleUpdater)
+        .registerSystem(_lib_Trengine_src_Systems_SpriteUpdater__WEBPACK_IMPORTED_MODULE_4__.SpriteUpdater)
+        .registerSystem(_Systems_GameConfiguration__WEBPACK_IMPORTED_MODULE_5__.GameConfiguration)
+        .registerSystem(_Systems_LevelDesignerController__WEBPACK_IMPORTED_MODULE_6__.LevelDesignerController)
+        .registerSystem(_Systems_PlayerController__WEBPACK_IMPORTED_MODULE_7__.PlayerController)
+}
+
+/***/ }),
 /* 28 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -4866,12 +4830,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_MatterBody__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(31);
 /* harmony import */ var _Components_MatterEngine__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(32);
 /* harmony import */ var _Components_MatterRenderWireframe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(34);
-/* harmony import */ var _Components_Position__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(25);
+/* harmony import */ var _Components_Position__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(24);
 /* harmony import */ var _Components_TileMap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(35);
-/* harmony import */ var _Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1);
-/* harmony import */ var _Components_TwoSprite__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(2);
-/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(11);
-/* harmony import */ var _SceneManager__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(5);
+/* harmony import */ var _Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(36);
+/* harmony import */ var _Components_TwoSprite__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(37);
+/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(8);
+/* harmony import */ var _SceneManager__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(2);
 
 
 
@@ -5063,7 +5027,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MatterBodies": () => /* binding */ MatterBodies
 /* harmony export */ });
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 
 class MatterBodies {
@@ -5098,7 +5062,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MatterBody": () => /* binding */ MatterBody
 /* harmony export */ });
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 
 class MatterBody {
@@ -15529,7 +15493,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(33);
 /* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(matter_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
 
 
 
@@ -15604,14 +15568,68 @@ class TileMap {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Shapes": () => /* binding */ Shapes,
+/* harmony export */   "TwoPrimitiveShape": () => /* binding */ TwoPrimitiveShape
+/* harmony export */ });
+
+const Shapes = Object.freeze({
+    rectangle: 1,
+    ellipse: 2
+})
+
+class TwoPrimitiveShape {
+    constructor() {
+        this.width = this.height = 10;
+        this.shape = Shapes.rectangle;
+        this.color = '#FFFFFF'
+    }
+}
+
+/***/ }),
+/* 37 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "TwoSprite": () => /* binding */ TwoSprite
+/* harmony export */ });
+class TwoSprite {
+    constructor() {
+        this.texture
+        this.originalWidth
+        this.originalHeight
+        this.scaledWidth
+        this.scaledHeight
+        this.centerX
+        this.centerY
+        this.scale = 1
+        this.rotation = 0
+        this.renderOffsetX = 0
+        this.renderOffsetY = 0
+    }
+
+    init() {
+        this.originalWidth = this.texture.width
+        this.originalHeight = this.texture.height
+    }
+}
+
+/***/ }),
+/* 38 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MatterUpdater": () => /* binding */ MatterUpdater
 /* harmony export */ });
 /* harmony import */ var _Components_MatterEngine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32);
-/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
 /* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
 /* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(matter_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _Components_MatterConstraint__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(37);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
+/* harmony import */ var _Components_MatterConstraint__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(39);
 
 
 
@@ -15650,7 +15668,7 @@ class MatterUpdater extends _ECS__WEBPACK_IMPORTED_MODULE_1__.System {
 }
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -15658,7 +15676,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MatterConstraint": () => /* binding */ MatterConstraint
 /* harmony export */ });
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 
 class MatterConstraint {
@@ -15676,7 +15694,7 @@ class MatterConstraint {
 }
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -15684,9 +15702,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ParticleUpdater": () => /* binding */ ParticleUpdater
 /* harmony export */ });
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-/* harmony import */ var _Particles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(24);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var _Particles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
 
 
 
@@ -15704,7 +15722,7 @@ class ParticleUpdater extends _ECS__WEBPACK_IMPORTED_MODULE_1__.System {
 }
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -15712,11 +15730,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SpriteUpdater": () => /* binding */ SpriteUpdater
 /* harmony export */ });
-/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
-/* harmony import */ var _Components_Position__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
-/* harmony import */ var _Components_TwoSprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
+/* harmony import */ var _ECS__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var _Components_Position__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
+/* harmony import */ var _Components_TwoSprite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(37);
 /* harmony import */ var _Components_MatterBody__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1);
 /* harmony import */ var _Components_Camera__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(29);
 
 
@@ -15761,57 +15779,270 @@ class SpriteUpdater extends _ECS__WEBPACK_IMPORTED_MODULE_0__.System {
 }
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "buildLevelDesignerScene": () => /* binding */ buildLevelDesignerScene
+/* harmony export */   "GameConfiguration": () => /* binding */ GameConfiguration
 /* harmony export */ });
-/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(41);
-/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(matter_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var _lib_Trengine_src_Components_CollisionTileMap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(42);
-/* harmony import */ var _lib_Trengine_src_Components_MatterBody__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
-/* harmony import */ var _lib_Trengine_src_Components_TileMap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(35);
-/* harmony import */ var _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1);
-/* harmony import */ var _lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2);
-/* harmony import */ var _lib_Trengine_src_Systems_CanvasRenderer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(28);
-/* harmony import */ var _lib_Trengine_src_Systems_MatterUpdater__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(36);
-/* harmony import */ var _lib_Trengine_src_Systems_ParticleUpdater__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(38);
-/* harmony import */ var _lib_Trengine_src_Systems_SpriteUpdater__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(39);
-/* harmony import */ var _Components_Player__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(43);
-/* harmony import */ var _Systems_GameConfiguration__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(44);
-/* harmony import */ var _Systems_LevelDesignerController__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(45);
-/* harmony import */ var _Systems_PlayerController__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(46);
-/* harmony import */ var _UI_LevelDesigner_main__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(48);
+/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(32);
 
 
 
+class GameConfiguration extends _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.System {
+    init(scene) {
+        this.queries.singleton.getComponent(_lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_1__.MatterEngine).world().gravity.scale = 0.0017
+        this.queries.singleton.getComponent(_lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_1__.MatterEngine).renderAllWireframes = true
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-function buildLevelDesignerScene() {
-    const scene = new _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__.Scene()
-
-    return scene
+    update(delta) {}
 }
 
+/***/ }),
+/* 43 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LevelDesignerController": () => /* binding */ LevelDesignerController
+/* harmony export */ });
+/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _lib_Trengine_src_Components_Camera__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(29);
+
+
+
+class LevelDesignerController extends _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.System {
+    init(scene) {
+        this.input = _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getInputManager()
+        this.cameraVelocity = { x: 0, y: 0 }
+        
+        this.camera = this.queries.singleton.getComponent(_lib_Trengine_src_Components_Camera__WEBPACK_IMPORTED_MODULE_1__.Camera)
+        this.camera.target = { x: 0, y: 0 }
+
+    }
+
+    dispose() {
+        // document.getElementById('app').style.display = 'none'
+    }
+
+    update(delta) {
+        let speed = 1.5
+        if (this.input.getInput('heldShift')) {
+            speed = 0.4
+        }
+
+        if (this.input.getInput('right')) {
+            this.cameraVelocity.x += speed
+        }
+        if (this.input.getInput('left')) {
+            this.cameraVelocity.x -= speed
+        }
+        if (this.input.getInput('heldJump')) {
+            this.cameraVelocity.y -= speed
+        }
+        if (this.input.getInput('down')) {
+            this.cameraVelocity.y += speed
+        }
+
+        this.camera.target.x += this.cameraVelocity.x
+        this.camera.target.y += this.cameraVelocity.y
+
+        this.cameraVelocity.x *= 0.85
+        this.cameraVelocity.y *= 0.85
+    }
+}
 
 /***/ }),
-/* 41 */
+/* 44 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PlayerController": () => /* binding */ PlayerController
+/* harmony export */ });
+/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _lib_Trengine_src_Components_MatterBody__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(31);
+/* harmony import */ var _Components_Player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(45);
+/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(46);
+/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(matter_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(37);
+/* harmony import */ var _lib_Trengine_src_Components_Camera__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(29);
+/* harmony import */ var _Particles_PSExplosion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(47);
+/* harmony import */ var _lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(32);
+
+
+
+
+
+
+
+
+
+class PlayerController extends _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.System {
+    init(scene) {
+        this.input = _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getInputManager()
+        scene.registerQuery('player', [_Components_Player__WEBPACK_IMPORTED_MODULE_2__.Player, _lib_Trengine_src_Components_MatterBody__WEBPACK_IMPORTED_MODULE_1__.MatterBody, _lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_4__.TwoSprite])
+
+        matter_js__WEBPACK_IMPORTED_MODULE_3__.Events.on(scene.singletonComponents.getComponent(_lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_7__.MatterEngine).engine, 'collisionActive', _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEventManager().registerAsyncEvent('MatterCollisionActive'))
+        matter_js__WEBPACK_IMPORTED_MODULE_3__.Events.on(scene.singletonComponents.getComponent(_lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_7__.MatterEngine).engine, 'collisionEnd', _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEventManager().registerAsyncEvent('MatterCollisionEnd'))
+
+        this.counter = 0
+    }
+
+    update(delta) {
+
+        const eventManager = _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEventManager()
+
+        const camera = this.queries.singleton.getComponent(_lib_Trengine_src_Components_Camera__WEBPACK_IMPORTED_MODULE_5__.Camera)
+        const particleManager = this.queries.singleton.getComponent(_lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.ParticleManager)
+        const player = this.queries.player.firstOrDefault
+        const playerComponent = player.getComponent(_Components_Player__WEBPACK_IMPORTED_MODULE_2__.Player)
+        const twoSprite = player.getComponent(_lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_4__.TwoSprite)
+        const matterBody = player.getComponent(_lib_Trengine_src_Components_MatterBody__WEBPACK_IMPORTED_MODULE_1__.MatterBody).body
+
+        camera.target = matterBody.position
+        camera.zoom = 1
+
+        this.counter++
+
+        matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.set(matterBody, 'angle', 0)
+
+        if (matterBody.velocity.y > playerComponent.downForceTriggerVelocity) {
+            const downForce = matter_js__WEBPACK_IMPORTED_MODULE_3__.Common.clamp(matterBody.velocity.y * playerComponent.downForceMultiplier, 0, 0.4)
+            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.applyForce(matterBody, matterBody.position, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(0, downForce))
+        }
+
+        // Right left movement
+        if (this.input.getInput('right')) {
+            twoSprite.texture = _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getAssetStore().images['RDRight.png']
+            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.applyForce(matterBody, matterBody.position, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(playerComponent.moveForce, 0))
+        }
+        if (this.input.getInput('left')) {
+            twoSprite.texture = _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getAssetStore().images['RDLeft.png']
+            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.applyForce(matterBody, matterBody.position, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(-playerComponent.moveForce, 0))
+        }
+        if (!this.input.getInput('right') && !this.input.getInput('left') && playerComponent.onGround) {
+            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.setVelocity(matterBody, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(matterBody.velocity.x * playerComponent.floorFriction, matterBody.velocity.y))
+        }
+
+        // Jumping
+        if (
+            (this.input.getInput('jump') && playerComponent.onGround) || // Regular jump
+            (this.input.getInput('jump') && playerComponent.coyoteTime >= 0 && !playerComponent.didJump) || // Coyote time
+            (this.input.getInput('heldJump') && playerComponent.jumpBuffer >= 0 && playerComponent.onGround)
+        ) {
+            playerComponent.didJump = true
+            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.setVelocity(matterBody, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(matterBody.velocity.x, -playerComponent.jumpVelocity))
+            particleManager.addSystem(new _Particles_PSExplosion__WEBPACK_IMPORTED_MODULE_6__.PSExplosion(matterBody.position.x, matterBody.position.y + twoSprite.scaledHeight / 3))
+        }
+        // Decreased Gravity Top
+        if (this.input.getInput('heldJump')) {
+            if (matterBody.velocity.y > -playerComponent.jumpPeakWidth && matterBody.velocity.y < playerComponent.jumpPeakWidth) {
+                matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.applyForce(matterBody, matterBody.position, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(0, -playerComponent.jumpPeakUpForce))
+            }
+        }
+        if (this.input.getInput('jump')) {
+            playerComponent.jumpBuffer = playerComponent.jumpBufferLength
+        }
+
+        // Not-Ground check
+        if (eventManager.any('MatterCollisionEnd')) {
+            eventManager.receive('MatterCollisionEnd').forEach(event => {
+                event.pairs.forEach(collision => {
+                    if (this.collisionContains(collision, 'PlayerFloorSensor')) {
+                        playerComponent.onGround = false
+                        playerComponent.coyoteTime = playerComponent.coyoteTimeLength
+                    }
+                })
+            })
+        }
+
+        // Ground check
+        if (eventManager.any('MatterCollisionActive')) {
+            eventManager.receive('MatterCollisionActive').forEach(event => {
+                event.pairs.forEach(collision => {
+                    if (this.collisionContains(collision, 'PlayerFloorSensor')) {
+                        playerComponent.justLanded = !playerComponent.onGround
+                        playerComponent.onGround = true
+                    }
+                })
+            })
+        }
+
+        if (matterBody.position.y >= playerComponent.resetFloor) {
+            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.setPosition(matterBody, playerComponent.spawnPosition)
+        }
+
+        const averageYSpeed = playerComponent.previousVelocities.reduce((acc, next) => acc + Math.abs(next.y), 0) / playerComponent.previousVelocities.length
+
+        if ((playerComponent.justLanded && averageYSpeed > 10) || (playerComponent.justLanded && playerComponent.didJump)) {
+            particleManager.addSystem(new _Particles_PSExplosion__WEBPACK_IMPORTED_MODULE_6__.PSExplosion(matterBody.position.x, matterBody.position.y + twoSprite.scaledHeight / 3))
+        }
+
+        if (playerComponent.justLanded && playerComponent.didJump) playerComponent.didJump = false
+
+        const clampedX = matter_js__WEBPACK_IMPORTED_MODULE_3__.Common.clamp(matterBody.velocity.x, -playerComponent.velocityXConstraint, playerComponent.velocityXConstraint)
+        const clampedY = matter_js__WEBPACK_IMPORTED_MODULE_3__.Common.clamp(matterBody.velocity.y, -playerComponent.velocityYConstraint, playerComponent.velocityYConstraint)
+        matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.setVelocity(matterBody, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(clampedX, clampedY))
+
+        playerComponent.previousVelocities.push({ ...matterBody.velocity })
+        if (playerComponent.previousVelocities.length > 3) playerComponent.previousVelocities.shift()
+
+        playerComponent.coyoteTime--
+        playerComponent.jumpBuffer--
+    }
+
+    collisionContains(collision, label) {
+        return collision.bodyA.label === label || collision.bodyB.label === label
+    }
+}
+
+/***/ }),
+/* 45 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Player": () => /* binding */ Player
+/* harmony export */ });
+class Player {
+    constructor() {
+        this.jumpVelocity = 15
+        this.moveForce = 3.5
+        this.downForceTriggerVelocity = 0.6
+        this.downForceMultiplier = 0.6
+        this.jumpPeakUpForce = 0.24
+        this.jumpPeakWidth = 0.4
+        this.velocityXConstraint = 13
+        this.velocityYConstraint = 25
+
+        this.resetFloor = 4000
+        this.spawnPosition = { x: 0, y: 0 }
+
+        this.floorFriction = 0.78
+
+        this.jumpBufferLength = 5
+        this.coyoteTimeLength = 5
+
+        // Not for configuration
+        this.justLanded = false
+        this.didJump = false
+        this.onGround = false
+        this.jumpBuffer = 0
+        this.coyoteTime = 0
+
+        this.previousVelocities = []
+    }
+}
+
+/***/ }),
+/* 46 */
 /***/ ((module) => {
 
 /**
@@ -26178,379 +26409,6 @@ var Vector = _dereq_('../geometry/Vector');
 
 
 /***/ }),
-/* 42 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CollisionTileMap": () => /* binding */ CollisionTileMap
-/* harmony export */ });
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(33);
-/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(matter_js__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-class BodyHelper {
-    constructor(w, h, column, row) {
-        this.w = w
-        this.h = h
-        this.column = column
-        this.row = row
-    }
-
-    makeZero() {
-        this.w = 0
-        this.h = 0
-    }
-
-    isZero() {
-        return this.w === 0 && this.h === 0
-    }
-}
-
-class CollisionTileMap {
-    constructor() {
-        this.tileSize
-        this.tileData
-        this.columns
-        this.rows
-        this.position = { x: 0, y: 0 }
-        this._matterBodies = []
-    }
-
-    getTileIndex(col, row) {
-        return this.tileData[row * this.columns + col]
-    }
-
-    init() {
-        const matrix = [...Array(this.columns)].map(() => Array(this.rows).fill(null))
-        for (let column = 0; column < this.columns; column++) {
-            for (let row = 0; row < this.rows; row++) {
-                const tileIndex = this.getTileIndex(column, row)
-                if (tileIndex !== 0) {
-                    matrix[column][row] = new BodyHelper(1, 1, column, row)
-                } else {
-                    matrix[column][row] = new BodyHelper(0, 0, column, row)
-                }
-            }
-        }
-
-        for (let row = 0; row < this.rows; row++) {
-            for (let column = 0; column < this.columns; column++) {
-                for (let columnLookAhead = column + 1; columnLookAhead < this.columns; columnLookAhead++) {
-                    if (matrix[columnLookAhead][row].w === 0 || matrix[column][row].w === 0) break
-                    matrix[column][row].w++
-                    matrix[columnLookAhead][row].makeZero()
-                }
-            }
-        }
-
-        for (let column = 0; column < this.columns; column++) {
-            for (let row = 0; row < this.rows; row++) {
-                for (let rowLookAhead = row + 1; rowLookAhead < this.rows; rowLookAhead++) {
-                    if (matrix[column][rowLookAhead].w === 0 || matrix[column][row].w === 0) break
-                    if (matrix[column][row].w === matrix[column][rowLookAhead].w) {
-                        matrix[column][row].h += matrix[column][rowLookAhead].h
-                        matrix[column][rowLookAhead].makeZero()
-                    }
-                }
-            }
-        }
-
-        matrix.forEach((row) => {
-            row.forEach((bodyHelper) => {
-                if (!bodyHelper.isZero()) {
-                    const width = this.tileSize * bodyHelper.w
-                    const height = this.tileSize * bodyHelper.h
-                    const body = matter_js__WEBPACK_IMPORTED_MODULE_1__.Bodies.rectangle(
-                        (bodyHelper.column * this.tileSize + width / 2) + this.position.x,
-                        (bodyHelper.row * this.tileSize + height / 2) + this.position.y,
-                        width,
-                        height,
-                        { isStatic: true }
-                    )
-                    this._matterBodies.push(body)
-                    ___WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEventManager().send('MatterBodyAdded', body)
-                }
-            })
-        })
-    }
-
-    dispose() {
-        this._matterBodies.forEach(body => {
-            ___WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEventManager().send('MatterBodyRemoved', body)
-        })
-    }
-}
-
-
-
-/***/ }),
-/* 43 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Player": () => /* binding */ Player
-/* harmony export */ });
-class Player {
-    constructor() {
-        this.jumpVelocity = 15
-        this.moveForce = 3.5
-        this.downForceTriggerVelocity = 0.6
-        this.downForceMultiplier = 0.6
-        this.jumpPeakUpForce = 0.24
-        this.jumpPeakWidth = 0.4
-        this.velocityXConstraint = 13
-        this.velocityYConstraint = 25
-
-        this.resetFloor = 4000
-        this.spawnPosition = { x: 0, y: 0 }
-
-        this.floorFriction = 0.78
-
-        this.jumpBufferLength = 5
-        this.coyoteTimeLength = 5
-
-        // Not for configuration
-        this.justLanded = false
-        this.didJump = false
-        this.onGround = false
-        this.jumpBuffer = 0
-        this.coyoteTime = 0
-
-        this.previousVelocities = []
-    }
-}
-
-/***/ }),
-/* 44 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "GameConfiguration": () => /* binding */ GameConfiguration
-/* harmony export */ });
-/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var _lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(32);
-
-
-
-class GameConfiguration extends _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.System {
-    init(scene) {
-        this.queries.singleton.getComponent(_lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_1__.MatterEngine).world().gravity.scale = 0.0017
-        this.queries.singleton.getComponent(_lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_1__.MatterEngine).renderAllWireframes = false
-    }
-
-    update(delta) {}
-}
-
-/***/ }),
-/* 45 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LevelDesignerController": () => /* binding */ LevelDesignerController
-/* harmony export */ });
-/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var _lib_Trengine_src_Components_Camera__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(29);
-
-
-
-class LevelDesignerController extends _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.System {
-    init(scene) {
-        this.input = _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getInputManager()
-        this.cameraVelocity = { x: 0, y: 0 }
-        
-        this.camera = this.queries.singleton.getComponent(_lib_Trengine_src_Components_Camera__WEBPACK_IMPORTED_MODULE_1__.Camera)
-        this.camera.target = { x: 0, y: 0 }
-
-    }
-
-    dispose() {
-        // document.getElementById('app').style.display = 'none'
-    }
-
-    update(delta) {
-        let speed = 1.5
-        if (this.input.getInput('heldShift')) {
-            speed = 0.4
-        }
-
-        if (this.input.getInput('right')) {
-            this.cameraVelocity.x += speed
-        }
-        if (this.input.getInput('left')) {
-            this.cameraVelocity.x -= speed
-        }
-        if (this.input.getInput('heldJump')) {
-            this.cameraVelocity.y -= speed
-        }
-        if (this.input.getInput('down')) {
-            this.cameraVelocity.y += speed
-        }
-
-        this.camera.target.x += this.cameraVelocity.x
-        this.camera.target.y += this.cameraVelocity.y
-
-        this.cameraVelocity.x *= 0.85
-        this.cameraVelocity.y *= 0.85
-    }
-}
-
-/***/ }),
-/* 46 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "PlayerController": () => /* binding */ PlayerController
-/* harmony export */ });
-/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var _lib_Trengine_src_Components_MatterBody__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(31);
-/* harmony import */ var _Components_Player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(43);
-/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(41);
-/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(matter_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
-/* harmony import */ var _lib_Trengine_src_Components_Camera__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(29);
-/* harmony import */ var _Particles_PSExplosion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(47);
-/* harmony import */ var _lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(32);
-
-
-
-
-
-
-
-
-
-class PlayerController extends _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.System {
-    init(scene) {
-        this.input = _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getInputManager()
-        scene.registerQuery('player', [_Components_Player__WEBPACK_IMPORTED_MODULE_2__.Player, _lib_Trengine_src_Components_MatterBody__WEBPACK_IMPORTED_MODULE_1__.MatterBody, _lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_4__.TwoSprite])
-
-        matter_js__WEBPACK_IMPORTED_MODULE_3__.Events.on(scene.singletonComponents.getComponent(_lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_7__.MatterEngine).engine, 'collisionActive', _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEventManager().registerAsyncEvent('MatterCollisionActive'))
-        matter_js__WEBPACK_IMPORTED_MODULE_3__.Events.on(scene.singletonComponents.getComponent(_lib_Trengine_src_Components_MatterEngine__WEBPACK_IMPORTED_MODULE_7__.MatterEngine).engine, 'collisionEnd', _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEventManager().registerAsyncEvent('MatterCollisionEnd'))
-
-        this.counter = 0
-    }
-
-    update(delta) {
-
-        const eventManager = _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEventManager()
-
-        const camera = this.queries.singleton.getComponent(_lib_Trengine_src_Components_Camera__WEBPACK_IMPORTED_MODULE_5__.Camera)
-        const particleManager = this.queries.singleton.getComponent(_lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.ParticleManager)
-        const player = this.queries.player.firstOrDefault
-        const playerComponent = player.getComponent(_Components_Player__WEBPACK_IMPORTED_MODULE_2__.Player)
-        const twoSprite = player.getComponent(_lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_4__.TwoSprite)
-        const matterBody = player.getComponent(_lib_Trengine_src_Components_MatterBody__WEBPACK_IMPORTED_MODULE_1__.MatterBody).body
-
-        camera.target = matterBody.position
-        camera.zoom = 1
-
-        this.counter++
-
-        matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.set(matterBody, 'angle', 0)
-
-        if (matterBody.velocity.y > playerComponent.downForceTriggerVelocity) {
-            const downForce = matter_js__WEBPACK_IMPORTED_MODULE_3__.Common.clamp(matterBody.velocity.y * playerComponent.downForceMultiplier, 0, 0.4)
-            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.applyForce(matterBody, matterBody.position, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(0, downForce))
-        }
-
-        // Right left movement
-        if (this.input.getInput('right')) {
-            twoSprite.texture = _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getAssetStore().images['RDRight.png']
-            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.applyForce(matterBody, matterBody.position, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(playerComponent.moveForce, 0))
-        }
-        if (this.input.getInput('left')) {
-            twoSprite.texture = _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getAssetStore().images['RDLeft.png']
-            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.applyForce(matterBody, matterBody.position, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(-playerComponent.moveForce, 0))
-        }
-        if (!this.input.getInput('right') && !this.input.getInput('left') && playerComponent.onGround) {
-            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.setVelocity(matterBody, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(matterBody.velocity.x * playerComponent.floorFriction, matterBody.velocity.y))
-        }
-
-        // Jumping
-        if (
-            (this.input.getInput('jump') && playerComponent.onGround) || // Regular jump
-            (this.input.getInput('jump') && playerComponent.coyoteTime >= 0 && !playerComponent.didJump) || // Coyote time
-            (this.input.getInput('heldJump') && playerComponent.jumpBuffer >= 0 && playerComponent.onGround)
-        ) {
-            playerComponent.didJump = true
-            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.setVelocity(matterBody, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(matterBody.velocity.x, -playerComponent.jumpVelocity))
-            particleManager.addSystem(new _Particles_PSExplosion__WEBPACK_IMPORTED_MODULE_6__.PSExplosion(matterBody.position.x, matterBody.position.y + twoSprite.scaledHeight / 3))
-        }
-        // Decreased Gravity Top
-        if (this.input.getInput('heldJump')) {
-            if (matterBody.velocity.y > -playerComponent.jumpPeakWidth && matterBody.velocity.y < playerComponent.jumpPeakWidth) {
-                matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.applyForce(matterBody, matterBody.position, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(0, -playerComponent.jumpPeakUpForce))
-            }
-        }
-        if (this.input.getInput('jump')) {
-            playerComponent.jumpBuffer = playerComponent.jumpBufferLength
-        }
-
-        // Not-Ground check
-        if (eventManager.any('MatterCollisionEnd')) {
-            eventManager.receive('MatterCollisionEnd').forEach(event => {
-                event.pairs.forEach(collision => {
-                    if (this.collisionContains(collision, 'PlayerFloorSensor')) {
-                        playerComponent.onGround = false
-                        playerComponent.coyoteTime = playerComponent.coyoteTimeLength
-                    }
-                })
-            })
-        }
-
-        // Ground check
-        if (eventManager.any('MatterCollisionActive')) {
-            eventManager.receive('MatterCollisionActive').forEach(event => {
-                event.pairs.forEach(collision => {
-                    if (this.collisionContains(collision, 'PlayerFloorSensor')) {
-                        playerComponent.justLanded = !playerComponent.onGround
-                        playerComponent.onGround = true
-                    }
-                })
-            })
-        }
-
-        if (matterBody.position.y >= playerComponent.resetFloor) {
-            matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.setPosition(matterBody, playerComponent.spawnPosition)
-        }
-
-        const averageYSpeed = playerComponent.previousVelocities.reduce((acc, next) => acc + Math.abs(next.y), 0) / playerComponent.previousVelocities.length
-
-        if ((playerComponent.justLanded && averageYSpeed > 10) || (playerComponent.justLanded && playerComponent.didJump)) {
-            particleManager.addSystem(new _Particles_PSExplosion__WEBPACK_IMPORTED_MODULE_6__.PSExplosion(matterBody.position.x, matterBody.position.y + twoSprite.scaledHeight / 3))
-        }
-
-        if (playerComponent.justLanded && playerComponent.didJump) playerComponent.didJump = false
-
-        const clampedX = matter_js__WEBPACK_IMPORTED_MODULE_3__.Common.clamp(matterBody.velocity.x, -playerComponent.velocityXConstraint, playerComponent.velocityXConstraint)
-        const clampedY = matter_js__WEBPACK_IMPORTED_MODULE_3__.Common.clamp(matterBody.velocity.y, -playerComponent.velocityYConstraint, playerComponent.velocityYConstraint)
-        matter_js__WEBPACK_IMPORTED_MODULE_3__.Body.setVelocity(matterBody, matter_js__WEBPACK_IMPORTED_MODULE_3__.Vector.create(clampedX, clampedY))
-
-        playerComponent.previousVelocities.push({ ...matterBody.velocity })
-        if (playerComponent.previousVelocities.length > 3) playerComponent.previousVelocities.shift()
-
-        playerComponent.coyoteTime--
-        playerComponent.jumpBuffer--
-    }
-
-    collisionContains(collision, label) {
-        return collision.bodyA.label === label || collision.bodyB.label === label
-    }
-}
-
-/***/ }),
 /* 47 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -26559,8 +26417,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "PSExplosion": () => /* binding */ PSExplosion
 /* harmony export */ });
-/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var _lib_Trengine_src_Particles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
+/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _lib_Trengine_src_Particles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23);
 
 
 
@@ -26618,22 +26476,70 @@ class PSExplosion extends _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.Particl
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "registerEntities": () => /* binding */ registerEntities
+/* harmony export */ });
+/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
+/* harmony import */ var _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(20);
+
+
+
+
+function registerEntities() {
+    _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEntityStore()
+    .registerEntity('Moving Rectangle')
+    .addComponent(_lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.Position, [
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('x', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('y', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0)
+    ])
+    .addComponent(_lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.Velocity, [
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('x', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 1),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('y', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0)
+    ])
+    .addComponent(_lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_1__.TwoPrimitiveShape, [
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('width', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('height', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('shape', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_1__.Shapes.rectangle),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('color', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Color, '#FFFFFF'),
+    ])
+
+_lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.SceneManager.getEntityStore()
+    .registerEntity('Rectangle')
+    .addComponent(_lib_Trengine_src__WEBPACK_IMPORTED_MODULE_0__.Position, [
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('x', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('y', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 0)
+    ])
+    .addComponent(_lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_1__.TwoPrimitiveShape, [
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('width', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('height', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, 10),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('shape', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Number, _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_1__.Shapes.rectangle),
+        new _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Property('color', _lib_Trengine_src_EntityStore__WEBPACK_IMPORTED_MODULE_2__.Type.Color, '#FFFFFF'),
+    ])
+}
+
+/***/ }),
+/* 49 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createLevelDesignerUI": () => /* binding */ createLevelDesignerUI,
 /* harmony export */   "destroyLevelDesignerUI": () => /* binding */ destroyLevelDesignerUI
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(116);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(132);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(117);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(133);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(vuex__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(133);
-/* harmony import */ var _Components_Main_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(49);
-/* harmony import */ var _Components_Scene_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(71);
-/* harmony import */ var _Components_SceneSettings_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(106);
-/* harmony import */ var _Components_AddSystem_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(117);
-/* harmony import */ var _Components_AddEntity_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(124);
-/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(129);
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(131);
-/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(130);
-/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(134);
+/* harmony import */ var _Components_Main_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(50);
+/* harmony import */ var _Components_Scene_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(72);
+/* harmony import */ var _Components_SceneSettings_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(107);
+/* harmony import */ var _Components_AddSystem_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(118);
+/* harmony import */ var _Components_AddEntity_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(125);
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(130);
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(132);
+/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(131);
+/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(2);
 
 
 
@@ -26656,7 +26562,7 @@ function createLevelDesignerUI() {
     appRoot.id = "app"
     document.body.insertBefore(appRoot, document.body.firstChild)
 
-    _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__.library.add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faPlusSquare, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faAngleDown, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faDownload, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faUpload, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faCog, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faPlus, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faAngleRight, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faTrash, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faSyncAlt, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faArrowLeft)
+    _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_5__.library.add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faPlusSquare, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faAngleDown, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faDownload, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faUpload, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faCog, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faPlus, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faAngleRight, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faTrash, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faSyncAlt, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faArrowLeft, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faSave, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__.faArchive)
     vue__WEBPACK_IMPORTED_MODULE_9__.default.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_6__.FontAwesomeIcon)
 
     vue__WEBPACK_IMPORTED_MODULE_9__.default.use((vuex__WEBPACK_IMPORTED_MODULE_10___default()))
@@ -26703,7 +26609,7 @@ function destroyLevelDesignerUI(vm) {
 }
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26711,10 +26617,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Main_vue_vue_type_template_id_3bc6e190___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(50);
-/* harmony import */ var _Main_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(52);
-/* harmony import */ var _Main_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(69);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
+/* harmony import */ var _Main_vue_vue_type_template_id_3bc6e190___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(51);
+/* harmony import */ var _Main_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(53);
+/* harmony import */ var _Main_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(70);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
 
 
 
@@ -26740,7 +26646,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/Main.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26749,11 +26655,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_template_id_3bc6e190___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_template_id_3bc6e190___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_template_id_3bc6e190___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(51);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_template_id_3bc6e190___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(52);
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26795,18 +26701,6 @@ render._withStripped = true
 
 
 /***/ }),
-/* 52 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(53);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
 /* 53 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -26815,7 +26709,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 54 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(55);
 //
 //
 //
@@ -26843,7 +26749,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26851,10 +26757,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Header_vue_vue_type_template_id_029c7eb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(55);
-/* harmony import */ var _Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(57);
-/* harmony import */ var _Header_vue_vue_type_style_index_0_id_029c7eb8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(67);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
+/* harmony import */ var _Header_vue_vue_type_template_id_029c7eb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56);
+/* harmony import */ var _Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(58);
+/* harmony import */ var _Header_vue_vue_type_style_index_0_id_029c7eb8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(68);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
 
 
 
@@ -26880,7 +26786,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/Header.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26889,11 +26795,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_029c7eb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_029c7eb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_029c7eb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_template_id_029c7eb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(57);
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26937,11 +26843,13 @@ var render = function() {
             "div",
             {
               staticClass: "icon is-medium has-tooltip-arrow hover-highlight",
-              attrs: { "data-tooltip": "Upload an existing scene" },
+              attrs: { "data-tooltip": "Open existing scene" },
               on: { click: _vm.uploadScene }
             },
             [
-              _c("font-awesome-icon", { attrs: { icon: "upload", size: "lg" } })
+              _c("font-awesome-icon", {
+                attrs: { icon: "archive", size: "lg" }
+              })
             ],
             1
           ),
@@ -26950,14 +26858,10 @@ var render = function() {
             "div",
             {
               staticClass: "icon is-medium has-tooltip-arrow hover-highlight",
-              attrs: { "data-tooltip": "Export current scene" },
+              attrs: { "data-tooltip": "Save current scene" },
               on: { click: _vm.exportScene }
             },
-            [
-              _c("font-awesome-icon", {
-                attrs: { icon: "download", size: "lg" }
-              })
-            ],
+            [_c("font-awesome-icon", { attrs: { icon: "save", size: "lg" } })],
             1
           )
         ])
@@ -26971,18 +26875,6 @@ render._withStripped = true
 
 
 /***/ }),
-/* 57 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(58);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
 /* 58 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -26991,52 +26883,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _lib_Trengine_src_ECS__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
-/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
-/* harmony import */ var _lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(18);
-/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(59);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(59);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
+/***/ }),
+/* 59 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _lib_Trengine_src_ECS__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(60);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -27045,11 +26947,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
     methods: {
-        exportScene() {
+        async exportScene() {
             if (!this.$store.state.scene) return
             const sceneData = this.$store.state.sceneData
-            const data = JSON.stringify(_lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.saveScene(sceneData.scene, sceneData.bundle));
-            (0,_lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_2__.downloadToFile)(data, sceneData.scene + ".json", "text/JSON");
+            const mostRecentSceneData = _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.saveScene(sceneData.scene, sceneData.bundle)
+            await _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.getAssetStore()
+                .saveJSONFile(mostRecentSceneData.fileName, mostRecentSceneData)
         },
         uploadScene() {
             _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__.default.clearScenes()
@@ -27078,13 +26981,13 @@ __webpack_require__.r(__webpack_exports__);
         },
     },
     components: {
-        Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_3__.default,
+        Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_2__.default,
     },
 });
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27092,10 +26995,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _BoxContainer_vue_vue_type_template_id_7ede56b3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(60);
-/* harmony import */ var _BoxContainer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(62);
-/* harmony import */ var _BoxContainer_vue_vue_type_style_index_0_id_7ede56b3_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(64);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
+/* harmony import */ var _BoxContainer_vue_vue_type_template_id_7ede56b3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(61);
+/* harmony import */ var _BoxContainer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(63);
+/* harmony import */ var _BoxContainer_vue_vue_type_style_index_0_id_7ede56b3_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(65);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
 
 
 
@@ -27121,7 +27024,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/Common/BoxContainer.
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27130,11 +27033,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BoxContainer_vue_vue_type_template_id_7ede56b3_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BoxContainer_vue_vue_type_template_id_7ede56b3_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BoxContainer_vue_vue_type_template_id_7ede56b3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(61);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BoxContainer_vue_vue_type_template_id_7ede56b3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(62);
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27159,7 +27062,7 @@ render._withStripped = true
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27167,11 +27070,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_BoxContainer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(63);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_BoxContainer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(64);
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_BoxContainer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27194,16 +27097,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_BoxContainer_vue_vue_type_style_index_0_id_7ede56b3_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(65);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_BoxContainer_vue_vue_type_style_index_0_id_7ede56b3_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(66);
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27212,7 +27115,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27321,21 +27224,12 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 67 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_style_index_0_id_029c7eb8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(68);
-
-
-/***/ }),
 /* 68 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Header_vue_vue_type_style_index_0_id_029c7eb8_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(69);
 
 
 /***/ }),
@@ -27344,7 +27238,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(70);
+// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -27353,7 +27247,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(71);
 
 
 /***/ }),
@@ -27362,13 +27256,22 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+/* 72 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Scene_vue_vue_type_template_id_9480a176_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(72);
-/* harmony import */ var _Scene_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(74);
-/* harmony import */ var _Scene_vue_vue_type_style_index_0_id_9480a176_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(104);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
+/* harmony import */ var _Scene_vue_vue_type_template_id_9480a176_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(73);
+/* harmony import */ var _Scene_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(75);
+/* harmony import */ var _Scene_vue_vue_type_style_index_0_id_9480a176_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(105);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
 
 
 
@@ -27394,7 +27297,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/Scene.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27403,11 +27306,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Scene_vue_vue_type_template_id_9480a176_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Scene_vue_vue_type_template_id_9480a176_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Scene_vue_vue_type_template_id_9480a176_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(73);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Scene_vue_vue_type_template_id_9480a176_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(74);
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27534,18 +27437,6 @@ render._withStripped = true
 
 
 /***/ }),
-/* 74 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Scene_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(75);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Scene_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
 /* 75 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -27554,14 +27445,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var _lib_Trengine_src_Components_Position__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
-/* harmony import */ var _lib_Trengine_src_Components_Velocity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26);
-/* harmony import */ var _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-/* harmony import */ var _lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(18);
-/* harmony import */ var _Entity_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(76);
-/* harmony import */ var _System_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(97);
-/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(59);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Scene_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(76);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Scene_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 76 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _lib_Trengine_src_Components_Position__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
+/* harmony import */ var _lib_Trengine_src_Components_Velocity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(25);
+/* harmony import */ var _lib_Trengine_src_Components_TwoPrimitiveShape__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(36);
+/* harmony import */ var _lib_Trengine_src_Util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(15);
+/* harmony import */ var _Entity_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(77);
+/* harmony import */ var _System_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(98);
+/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(60);
 //
 //
 //
@@ -27681,7 +27584,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27689,10 +27592,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Entity_vue_vue_type_template_id_306e26fa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(77);
-/* harmony import */ var _Entity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(79);
-/* harmony import */ var _Entity_vue_vue_type_style_index_0_id_306e26fa_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(95);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
+/* harmony import */ var _Entity_vue_vue_type_template_id_306e26fa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(78);
+/* harmony import */ var _Entity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(80);
+/* harmony import */ var _Entity_vue_vue_type_style_index_0_id_306e26fa_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(96);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
 
 
 
@@ -27718,7 +27621,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/Entity.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27727,11 +27630,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Entity_vue_vue_type_template_id_306e26fa_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Entity_vue_vue_type_template_id_306e26fa_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Entity_vue_vue_type_template_id_306e26fa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(78);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Entity_vue_vue_type_template_id_306e26fa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(79);
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27794,18 +27697,6 @@ render._withStripped = true
 
 
 /***/ }),
-/* 79 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Entity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Entity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
 /* 80 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -27814,8 +27705,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Common_Node_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
-/* harmony import */ var _Component_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(88);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Entity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Entity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 81 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _Common_Node_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(82);
+/* harmony import */ var _Component_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(89);
 //
 //
 //
@@ -27868,7 +27771,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27876,10 +27779,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Node_vue_vue_type_template_id_33215e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(82);
-/* harmony import */ var _Node_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(84);
-/* harmony import */ var _Node_vue_vue_type_style_index_0_id_33215e82_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(86);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
+/* harmony import */ var _Node_vue_vue_type_template_id_33215e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(83);
+/* harmony import */ var _Node_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(85);
+/* harmony import */ var _Node_vue_vue_type_style_index_0_id_33215e82_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(87);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
 
 
 
@@ -27905,7 +27808,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/Common/Node.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27914,11 +27817,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Node_vue_vue_type_template_id_33215e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Node_vue_vue_type_template_id_33215e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Node_vue_vue_type_template_id_33215e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(83);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Node_vue_vue_type_template_id_33215e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(84);
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27973,7 +27876,7 @@ render._withStripped = true
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27981,11 +27884,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Node_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(85);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Node_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(86);
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Node_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28036,21 +27939,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 86 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Node_vue_vue_type_style_index_0_id_33215e82_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(87);
-
-
-/***/ }),
 /* 87 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Node_vue_vue_type_style_index_0_id_33215e82_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(88);
 
 
 /***/ }),
@@ -28059,13 +27953,22 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+/* 89 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Component_vue_vue_type_template_id_c6c3ca94_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(89);
-/* harmony import */ var _Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(91);
-/* harmony import */ var _Component_vue_vue_type_style_index_0_id_c6c3ca94_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(93);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
+/* harmony import */ var _Component_vue_vue_type_template_id_c6c3ca94_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(90);
+/* harmony import */ var _Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(92);
+/* harmony import */ var _Component_vue_vue_type_style_index_0_id_c6c3ca94_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(94);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
 
 
 
@@ -28091,7 +27994,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/Component.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28100,11 +28003,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_template_id_c6c3ca94_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_template_id_c6c3ca94_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_template_id_c6c3ca94_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(90);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_template_id_c6c3ca94_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(91);
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28199,18 +28102,6 @@ render._withStripped = true
 
 
 /***/ }),
-/* 91 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(92);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
 /* 92 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -28219,7 +28110,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Common_Node_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(93);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 93 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _Common_Node_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(82);
 //
 //
 //
@@ -28286,21 +28189,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 93 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_style_index_0_id_c6c3ca94_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(94);
-
-
-/***/ }),
 /* 94 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Component_vue_vue_type_style_index_0_id_c6c3ca94_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(95);
 
 
 /***/ }),
@@ -28309,7 +28203,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Entity_vue_vue_type_style_index_0_id_306e26fa_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(96);
+// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -28318,7 +28212,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Entity_vue_vue_type_style_index_0_id_306e26fa_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(97);
 
 
 /***/ }),
@@ -28327,13 +28221,22 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+/* 98 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(98);
-/* harmony import */ var _System_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(100);
-/* harmony import */ var _System_vue_vue_type_style_index_0_id_a1b6a174_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(102);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
+/* harmony import */ var _System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(99);
+/* harmony import */ var _System_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(101);
+/* harmony import */ var _System_vue_vue_type_style_index_0_id_a1b6a174_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(103);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
 
 
 
@@ -28359,7 +28262,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/System.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28368,11 +28271,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(99);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_template_id_a1b6a174_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(100);
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28437,18 +28340,6 @@ render._withStripped = true
 
 
 /***/ }),
-/* 100 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(101);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
 /* 101 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -28457,7 +28348,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Common_Node_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(102);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 102 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _Common_Node_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(82);
 //
 //
 //
@@ -28510,21 +28413,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 102 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_style_index_0_id_a1b6a174_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(103);
-
-
-/***/ }),
 /* 103 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_System_vue_vue_type_style_index_0_id_a1b6a174_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(104);
 
 
 /***/ }),
@@ -28533,7 +28427,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Scene_vue_vue_type_style_index_0_id_9480a176_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(105);
+// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -28542,7 +28436,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Scene_vue_vue_type_style_index_0_id_9480a176_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(106);
 
 
 /***/ }),
@@ -28551,12 +28445,21 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+/* 107 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _SceneSettings_vue_vue_type_template_id_46bff908_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(107);
-/* harmony import */ var _SceneSettings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(109);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(66);
+/* harmony import */ var _SceneSettings_vue_vue_type_template_id_46bff908_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(108);
+/* harmony import */ var _SceneSettings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(110);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(67);
 
 
 
@@ -28581,7 +28484,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/SceneSettings.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28590,11 +28493,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SceneSettings_vue_vue_type_template_id_46bff908_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SceneSettings_vue_vue_type_template_id_46bff908_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SceneSettings_vue_vue_type_template_id_46bff908_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(108);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SceneSettings_vue_vue_type_template_id_46bff908_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(109);
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28618,6 +28521,7 @@ var render = function() {
           "div",
           {
             staticClass: "icon is-medium has-tooltip-arrow hover-highlight",
+            class: { "has-text-grey": _vm.unsavedChanges },
             on: {
               click: function($event) {
                 return _vm.goTo("/scene")
@@ -28671,14 +28575,47 @@ var render = function() {
         [
           _c("select-dropdown", {
             attrs: {
+              loading: _vm.bundleLoading,
               items: _vm.bundles,
-              initial: _vm.$store.state.sceneData.bundle
+              initial: _vm.$store.state.sceneData.bundle || _vm.DEFAULTBUNDLE
             },
             on: { "item-selected": _vm.onBundleSelect }
           })
         ],
         1
       )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "level" }, [
+      _c("div", { staticClass: "level-left" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "level-right" }, [
+        _c("div", { staticClass: "level-item" }, [
+          _c(
+            "div",
+            {
+              staticClass: "button",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("/scene")
+                }
+              }
+            },
+            [_vm._v("Cancel")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "level-item" }, [
+          _c(
+            "div",
+            {
+              staticClass: "button is-info",
+              attrs: { disabled: !_vm.unsavedChanges }
+            },
+            [_vm._v("Apply Changes")]
+          )
+        ])
+      ])
     ])
   ])
 }
@@ -28686,18 +28623,6 @@ var staticRenderFns = []
 render._withStripped = true
 
 
-
-/***/ }),
-/* 109 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_SceneSettings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(110);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_SceneSettings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 /* 110 */
@@ -28708,9 +28633,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59);
-/* harmony import */ var _Common_SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(111);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_SceneSettings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(111);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_SceneSettings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 111 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(60);
+/* harmony import */ var _Common_SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(112);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -28756,34 +28706,59 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    data() {
+        return {
+            unsavedChanges: false,
+            bundleLoading: false,
+            sceneName: this.$store.state.sceneData.scene,
+            bundleName: "default",
+        };
+    },
     components: {
         Box: _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_1__.default,
         SelectDropdown: _Common_SelectDropdown_vue__WEBPACK_IMPORTED_MODULE_2__.default,
     },
     methods: {
         onBundleSelect(bundle) {
+            this.bundleLoading = true;
             this.$store.state.sceneData.bundle = bundle;
+            _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__.default.getAssetStore()
+                .loadBundle(bundle)
+                .then(() => {
+                    this.bundleLoading = false;
+                });
         },
+        applyChanges() {
+
+        }
     },
-    computed: {
+    computed: { 
         bundles() {
             return _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__.default.getAssetStore().getBundleNames();
         },
         sceneName: {
             get() {
-                return this.$store.state.sceneData.scene
+                return this.$store.state.sceneData.scene;
             },
             set(value) {
-                _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__.default.renameScene(this.$store.state.sceneData.scene, value)
-                this.$store.state.sceneData.scene = value
-            }
+                _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_0__.default.renameScene(
+                    this.$store.state.sceneData.scene,
+                    value
+                );
+                this.$store.state.sceneData.scene = value;
+            },
+        },
+    },
+    created() {
+        if (this.$store.state.sceneData.bundle === "") {
+            this.$store.state.sceneData.bundle = this.bundleName;
         }
     },
 });
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28791,9 +28766,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(112);
-/* harmony import */ var _SelectDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(114);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(66);
+/* harmony import */ var _SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(113);
+/* harmony import */ var _SelectDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(115);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(67);
 
 
 
@@ -28818,7 +28793,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/Common/SelectDropdow
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28827,11 +28802,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(113);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_template_id_4e3acc2a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(114);
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28865,7 +28840,7 @@ var render = function() {
           staticClass: "dropdown-trigger",
           on: {
             click: function($event) {
-              _vm.isActive = !_vm.isActive
+              _vm.isActive = !_vm.isActive && !_vm.loading
             }
           }
         },
@@ -28874,6 +28849,7 @@ var render = function() {
             "button",
             {
               staticClass: "button",
+              class: { "is-loading": _vm.loading },
               attrs: {
                 "aria-haspopup": "true",
                 "aria-controls": "dropdown-menu"
@@ -28932,18 +28908,6 @@ render._withStripped = true
 
 
 /***/ }),
-/* 114 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(115);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
 /* 115 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -28952,7 +28916,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(116);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(116);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 116 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(117);
 //
 //
 //
@@ -29017,6 +28993,12 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.directive('click-outside', {
             default() {
                 return this.items[0]
             }
+        },
+        loading: {
+            type: Boolean,
+            default() {
+                return false
+            }
         }
     },
     data() {
@@ -29040,7 +29022,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.directive('click-outside', {
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37489,7 +37471,7 @@ if (inBrowser) {
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37497,10 +37479,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(118);
-/* harmony import */ var _AddSystem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(120);
-/* harmony import */ var _AddSystem_vue_vue_type_style_index_0_id_5e6b4669_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(122);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
+/* harmony import */ var _AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(119);
+/* harmony import */ var _AddSystem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(121);
+/* harmony import */ var _AddSystem_vue_vue_type_style_index_0_id_5e6b4669_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(123);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
 
 
 
@@ -37526,7 +37508,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/AddSystem.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37535,11 +37517,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(119);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_template_id_5e6b4669_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(120);
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37629,18 +37611,6 @@ render._withStripped = true
 
 
 /***/ }),
-/* 120 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(121);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
 /* 121 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -37649,7 +37619,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(59);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(122);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 122 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(60);
 //
 //
 //
@@ -37715,21 +37697,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 122 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_style_index_0_id_5e6b4669_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(123);
-
-
-/***/ }),
 /* 123 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_AddSystem_vue_vue_type_style_index_0_id_5e6b4669_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(124);
 
 
 /***/ }),
@@ -37738,12 +37711,21 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+/* 125 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(125);
-/* harmony import */ var _AddEntity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(127);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(66);
+/* harmony import */ var _AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(126);
+/* harmony import */ var _AddEntity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(128);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(67);
 
 
 
@@ -37768,7 +37750,7 @@ component.options.__file = "src/UI/LevelDesigner/Components/AddEntity.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37777,11 +37759,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
 /* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(126);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_template_id_409683c6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(127);
 
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -37870,18 +37852,6 @@ render._withStripped = true
 
 
 /***/ }),
-/* 127 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(128);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
 /* 128 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -37890,8 +37860,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(59);
-/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(129);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_vue_loader_lib_index_js_vue_loader_options_AddEntity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+/* 129 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _Common_BoxContainer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(60);
+/* harmony import */ var _lib_Trengine_src_SceneManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 //
 //
 //
@@ -37952,7 +37934,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40464,7 +40446,7 @@ var autoReplace = function autoReplace() {
 
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40474,7 +40456,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "FontAwesomeLayers": () => /* binding */ FontAwesomeLayers,
 /* harmony export */   "FontAwesomeLayersText": () => /* binding */ FontAwesomeLayersText
 /* harmony export */ });
-/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(129);
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(130);
 
 
 var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
@@ -41013,7 +40995,7 @@ var FontAwesomeLayersText = {
 
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -48048,7 +48030,7 @@ var _iconsCache = {
 
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ ((module) => {
 
 "use strict";
@@ -49299,7 +49281,7 @@ module.exports = index_cjs;
 
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -52374,85 +52356,6 @@ if (inBrowser && window.Vue) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VueRouter);
 
-
-/***/ }),
-/* 134 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "buildTestScene": () => /* binding */ buildTestScene
-/* harmony export */ });
-/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(41);
-/* harmony import */ var matter_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(matter_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var _lib_Trengine_src_Components_CollisionTileMap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(42);
-/* harmony import */ var _lib_Trengine_src_Components_MatterBody__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
-/* harmony import */ var _lib_Trengine_src_Components_TileMap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(35);
-/* harmony import */ var _lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2);
-/* harmony import */ var _lib_Trengine_src_Systems_CanvasRenderer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(28);
-/* harmony import */ var _lib_Trengine_src_Systems_MatterUpdater__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(36);
-/* harmony import */ var _lib_Trengine_src_Systems_ParticleUpdater__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(38);
-/* harmony import */ var _lib_Trengine_src_Systems_SpriteUpdater__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(39);
-/* harmony import */ var _Components_Player__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(43);
-/* harmony import */ var _Systems_GameConfiguration__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(44);
-/* harmony import */ var _Systems_PlayerController__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(46);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function buildTestScene() {
-    const testScene = new _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__.Scene()
-
-    testScene
-        .registerSystem(_lib_Trengine_src_Systems_CanvasRenderer__WEBPACK_IMPORTED_MODULE_6__.CanvasRenderer)
-        .registerSystem(_lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__.Moving)
-        .registerSystem(_lib_Trengine_src_Systems_SpriteUpdater__WEBPACK_IMPORTED_MODULE_9__.SpriteUpdater)
-        .registerSystem(_lib_Trengine_src_Systems_MatterUpdater__WEBPACK_IMPORTED_MODULE_7__.MatterUpdater)
-        .registerSystem(_Systems_PlayerController__WEBPACK_IMPORTED_MODULE_12__.PlayerController)
-        .registerSystem(_lib_Trengine_src_Systems_ParticleUpdater__WEBPACK_IMPORTED_MODULE_8__.ParticleUpdater)
-        .registerSystem(_Systems_GameConfiguration__WEBPACK_IMPORTED_MODULE_11__.GameConfiguration)
-
-    
-    testScene
-        .createEntity()
-        .addComponent(_Components_Player__WEBPACK_IMPORTED_MODULE_10__.Player)
-        .addComponent(_lib_Trengine_src_Components_MatterBody__WEBPACK_IMPORTED_MODULE_3__.MatterBody, {
-            body: matter_js__WEBPACK_IMPORTED_MODULE_0__.Body.create({
-                parts: [
-                    matter_js__WEBPACK_IMPORTED_MODULE_0__.Bodies.circle(0, 0, 43, { label: "Player" }),
-                    matter_js__WEBPACK_IMPORTED_MODULE_0__.Bodies.rectangle(0, 45, 55, 15, { label: "PlayerFloorSensor", isSensor: true })
-                ], mass: 0, friction: 0
-            })
-        })
-        .addComponent(_lib_Trengine_src_Components_TwoSprite__WEBPACK_IMPORTED_MODULE_5__.TwoSprite, { texture: _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__.SceneManager.getAssetStore().images['RDRight.png'], scale: 4, renderOffsetY: -6 })
-
-    testScene
-        .createEntity()
-        .addComponent(_lib_Trengine_src_Components_TileMap__WEBPACK_IMPORTED_MODULE_4__.TileMap, { texture: _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__.SceneManager.getAssetStore().images['ForestTileMap.png'], tileSize: 16, columns: 7, rows: 4, tileData: _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__.SceneManager.getAssetStore().data['mainTileMap.json'], position: { x: -100, y: 0 } })
-        .addComponent(_lib_Trengine_src_Components_CollisionTileMap__WEBPACK_IMPORTED_MODULE_2__.CollisionTileMap, { tileSize: 16 * 6, columns: 7, rows: 4, tileData: _lib_Trengine_src__WEBPACK_IMPORTED_MODULE_1__.SceneManager.getAssetStore().data['mainTileMap.json'].map(index => (index > 0 && index <= 9) ? index : 0), position: { x: -100, y: 0 } })
-
-    return testScene
-}
-
-
-/***/ }),
-/* 135 */
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("path");;
 
 /***/ })
 /******/ 	]);
